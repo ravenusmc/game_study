@@ -6,6 +6,11 @@ back this time? Well, I'd say that I just want to get into a good project that c
 of web developement skills. I've been spending quite a lot of time following a Udemy course where I was working 
 in pygame. I found that although I liked making games I much rather preferred Web Development. So here I am...
 
+Dataset found at Kaggle here: 
+https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings
+
+Possible scraper to use:
+https://github.com/JaeguKim/Metacritic-Python-API
 
 
 # Getting started
