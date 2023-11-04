@@ -2,6 +2,6 @@
 
 from MetaCriticScraper import MetaCriticScraper
 
-urlForHorizonZeroDawn = 'https://www.metacritic.com/game/pc/horizon-zero-dawn-complete-edition?ref=hp'
+urlForHorizonZeroDawn = 'https://www.metacritic.com/game/alien-isolation/'
 scraper = MetaCriticScraper(urlForHorizonZeroDawn)
 print("Title: " + scraper.game['title'])
