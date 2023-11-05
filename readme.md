@@ -9,6 +9,10 @@ in pygame. I found that although I liked making games I much rather preferred We
 Dataset found at Kaggle here: 
 https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-ratings
 
+Webscraping video:
+https://www.youtube.com/watch?v=gRLHr664tXA
+
+
 Possible scraper to use:
 https://github.com/JaeguKim/Metacritic-Python-API
 
