@@ -24,7 +24,7 @@
           <span>
             <li class="nav-item">
               <a class="nav-link">
-                <router-link to="/analysis">Analysis</router-link>
+                <router-link to="/analysis">MetaCritic-Analysis</router-link>
               </a>
             </li>
           </span>

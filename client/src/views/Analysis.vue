@@ -1,15 +1,19 @@
 <template>
   <div>
-		<h2>HERE</h2>
+		<Form />
 	</div>
 </template>
 
 <script>
+import Form from "@/components/metaanalysis/Form.vue";
+
 export default {
-	name: "Analysis"
-}
+  name: "Analysis",
+  components: {
+    Form,
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

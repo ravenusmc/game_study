@@ -31,6 +31,7 @@ export default {
 
 .title-div {
   background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
   width: 40%;
   padding: 40px;
 }
