@@ -21,6 +21,10 @@ def fetchGameReviews():
         corrected_game_title = support.add_dash_to_game_titles(game_title_lowercase)
         scrape = Scraping(corrected_game_title)
         game_title = scrape.get_title_of_game()
+        scores = scrape.get_scores_of_game()
+        critic_data = scrape.get_critic_scores_and_data()
+        user_data = scrape.get_user_scores_and_data()
+        print(user_data)
     return jsonify('5')
 
 if __name__ == '__main__':
