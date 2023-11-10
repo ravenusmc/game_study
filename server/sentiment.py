@@ -5,4 +5,5 @@ from textblob import TextBlob
 
 class Sentiment():
 
-    
+    pass
+

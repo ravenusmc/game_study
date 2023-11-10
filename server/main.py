@@ -20,11 +20,15 @@ def fetchGameReviews():
         game_title_lowercase = support.lower_case_all_letters(post_data)
         corrected_game_title = support.add_dash_to_game_titles(game_title_lowercase)
         scrape = Scraping(corrected_game_title)
+        data_container = []
         game_title = scrape.get_title_of_game()
+        data_container.append(game_title)
         scores = scrape.get_scores_of_game()
-        critic_data = scrape.get_critic_scores_and_data()
-        user_data = scrape.get_user_scores_and_data()
-        print(user_data)
+        data_container.append(scores)
+        critic_score_data, critic_quote_data = scrape.get_critic_scores_and_data()
+        user_score_data, user_quote_data = scrape.get_user_scores_and_data()
+        #print(critic_score_data)
+        print(critic_quote_data)
     return jsonify('5')
 
 if __name__ == '__main__':

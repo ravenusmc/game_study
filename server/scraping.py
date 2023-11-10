@@ -34,28 +34,42 @@ class Scraping():
         html_text = requests.get(self.CRITIC_URL, headers=self.HEADERS).text
         count = 0
         critic_score_data = []
+        critic_quote_data = []
         columns = ['Review Number', 'Review Score']
+        columns_two = ['Review Number', 'Quote']
         critic_score_data.append(columns)
+        critic_quote_data.append(columns_two)
         # s = score and q = text other variables, date and url link, may be used down the road
         for q, s, u, d in re.findall(r'quote:"(.*?)",.*?score:(\d+).*?url:"(.*?)",.*?date:"(.*?)"', html_text):
             rows = []
+            rows_2 = []
             rows.append(count)
             rows.append(s)
+            rows_2.append(count)
+            rows_2.append(q)
             critic_score_data.append(rows)
+            critic_quote_data.append(rows_2)
             count += 1
-        return critic_score_data
+        return critic_score_data, critic_quote_data
     
     def get_user_scores_and_data(self):
         html_text = requests.get(self.USER_URL, headers=self.HEADERS).text
         count = 0
         user_score_data = []
+        user_quote_data = []
         columns = ['Review Number', 'Review Score']
+        columns_two = ['Review Number', 'Quote']
         user_score_data.append(columns)
+        user_quote_data.append(columns_two)
         # s = score and q = text other variables, date and url link, may be used down the road
         for q, s, u, d in re.findall(r'quote:"(.*?)",.*?score:(\d+).*?url:"(.*?)",.*?date:"(.*?)"', html_text):
             rows = []
+            rows_2 = []
             rows.append(count)
             rows.append(s)
+            rows_2.append(count)
+            rows_2.append(q)
             user_score_data.append(rows)
+            user_quote_data.append(rows_2)
             count += 1
-        return user_score_data
+        return user_score_data, user_quote_data
