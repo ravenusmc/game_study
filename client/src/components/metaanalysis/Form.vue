@@ -2,7 +2,7 @@
   <div>
     <form @submit="submitGameName">
       <label for="GameName">Game Name:</label><br />
-      <input type="text" id="GameName" name="GameName" v-model="GameName" /><br />
+      <input type="text" id="GameName" name="GameName" v-model="GameName" />
       <input type="submit" value="Submit" />
     </form>
 	</div>
@@ -25,7 +25,6 @@ export default {
       const payload = {
         GameName: this.GameName,
 			};
-			console.log(payload)
       this.submitGameNameToServer({ payload });
     },
   },
@@ -33,4 +32,19 @@ export default {
 </script>
 
 <style scoped>
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 50px 0;
+}
+
+label {
+  margin-right: 5px;
+}
+
+input {
+  margin-right: 5px;
+}
+
 </style>

@@ -6,11 +6,13 @@ import store from '@/store/index';
 Vue.use(Vuex);
 
 const data = {
-	GameName: '',
+	GameTitle: '',
+	criticScore: 0,
 };
 
 const getters = {
-	GameName: (state) => state.GameName,
+	GameTitle: (state) => state.GameTitle,
+	criticScore: (state) => state.criticScore,
 };
 
 const actions = {
@@ -19,8 +21,9 @@ const actions = {
 		const path = 'http://localhost:5000/getGameReviews';
 		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data)
-				commit('current_inventory', false);
+				console.log(res.data[1][0])
+				commit('setGameTitle', res.data[0]);
+				commit('setCriticScore', res.data[1][0])
 			})
 			.catch((error) => {
 				console.log(error);
@@ -32,9 +35,13 @@ const actions = {
 
 const mutations = {
 
-	setCurrentInventory(state, value) {
-		state.currentInventory = value;
+	setGameTitle(state, value) {
+		state.GameTitle = value;
 	},
+
+	setCriticScore(state, value) {
+		state.criticScore = value;
+	}
 
 };
 
