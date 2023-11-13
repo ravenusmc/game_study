@@ -5,19 +5,27 @@
     </div>
 		<Form />
     <hr>
-    <BasicGameAnalysis />
+    <NoData v-if="NoData" />
+    <BasicGameAnalysis v-if="!NoData" />
 	</div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import Form from "@/components/metaanalysis/Form.vue";
+import NoData from "@/components/metaanalysis/NoData.vue";
 import BasicGameAnalysis from "@/components/metaanalysis/BasicGameAnalysis.vue";
 
 export default {
   name: "Analysis",
   components: {
     Form,
+    NoData,
     BasicGameAnalysis,
+  },
+  computed: {
+    ...mapGetters("meta", ["NoData"]),
   },
 };
 </script>
