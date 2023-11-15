@@ -9,12 +9,14 @@ const data = {
 	NoData: true,
 	GameTitle: '',
 	criticScore: 0,
+	reviewScore: 0,
 };
 
 const getters = {
 	NoData: (state) => state.NoData,
 	GameTitle: (state) => state.GameTitle,
 	criticScore: (state) => state.criticScore,
+	reviewScore: (state) => state.reviewScore,
 };
 
 const actions = {
@@ -23,9 +25,10 @@ const actions = {
 		const path = 'http://localhost:5000/getGameReviews';
 		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data[1][0])
+				console.log(res.data)
 				commit('setGameTitle', res.data[0]);
 				commit('setCriticScore', res.data[1][0])
+				commit('setReviewScore', res.data[1][1])
 				commit('setNoData', false)
 			})
 			.catch((error) => {
@@ -49,6 +52,10 @@ const mutations = {
 	setCriticScore(state, value) {
 		state.criticScore = value;
 	},
+
+	setReviewScore(state, value) {
+		state.reviewScore = value;
+	}
 
 };
 

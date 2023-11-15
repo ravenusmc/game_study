@@ -2,6 +2,7 @@
 <div>
 	<h2>{{ GameTitle }}</h2>
 	<p>The Critic score is: {{ criticScore }}</p>
+	<p>The Review score is: {{ reviewScore }}</p>
 </div>
 </template>
 
@@ -11,7 +12,10 @@ import { mapGetters } from "vuex";
 export default {
 	name: 'BasicGameAnalysis',
 	computed: {
-    ...mapGetters("meta", ["GameTitle", "criticScore"]),
+		...mapGetters("meta", 
+		["GameTitle", 
+		"criticScore",
+		"reviewScore"]),
   },
 }
 

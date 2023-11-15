@@ -9,3 +9,6 @@ userscore_elements = soup.find_all("div", class_="c-siteReviewScore_background")
 #     print(element.text)
 # user_score = userscore_elements.text.strip()
 # print(user_score)
+
+
+# 
