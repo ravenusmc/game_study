@@ -35,6 +35,7 @@ class Scraping():
         count = 0
         critic_score_data = []
         critic_quote_data = []
+        only_critic_score_data = []
         columns = ['Review Number', 'Review Score']
         columns_two = ['Review Number', 'Quote']
         critic_score_data.append(columns)
@@ -45,11 +46,13 @@ class Scraping():
             rows_2 = []
             rows.append(count)
             rows.append(s)
+            only_critic_score_data.append(s)
             rows_2.append(count)
             rows_2.append(q)
             critic_score_data.append(rows)
             critic_quote_data.append(rows_2)
             count += 1
+        
         return critic_score_data, critic_quote_data
     
     def get_user_scores_and_data(self):
@@ -57,6 +60,7 @@ class Scraping():
         count = 0
         user_score_data = []
         user_quote_data = []
+        only_user_score_data = []
         columns = ['Review Number', 'Review Score']
         columns_two = ['Review Number', 'Quote']
         user_score_data.append(columns)
