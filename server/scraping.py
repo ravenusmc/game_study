@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 import re
 from ast import literal_eval
 
+# Importing files that I created 
+from support import *
+
 class Scraping():
 
     def __init__(self, corrected_game_title):
@@ -31,6 +34,7 @@ class Scraping():
         return scores 
     
     def get_critic_scores_and_data(self):
+        support = Support()
         html_text = requests.get(self.CRITIC_URL, headers=self.HEADERS).text
         count = 0
         critic_score_data = []
@@ -45,15 +49,23 @@ class Scraping():
             rows = []
             rows_2 = []
             rows.append(count)
-            rows.append(s)
-            only_critic_score_data.append(s)
+            rows.append(float(s))
+            only_critic_score_data.append(float(s))
             rows_2.append(count)
             rows_2.append(q)
             critic_score_data.append(rows)
             critic_quote_data.append(rows_2)
             count += 1
-        
-        return critic_score_data, critic_quote_data
+        stat_dict = {}
+        data_set_length = support.data_length(only_critic_score_data)
+        stat_dict['Data_set_length'] = data_set_length
+        critic_score_mean = support.score_mean(only_critic_score_data)
+        stat_dict['Critic_Score_Mean'] = critic_score_mean
+        critic_score_mode = support.score_mode(only_critic_score_data)
+        stat_dict['Critic_Score_Mode'] = critic_score_mode
+        critic_score_median = support.score_median(only_critic_score_data)
+        stat_dict['Critic_Score_Median'] = critic_score_median
+        return critic_score_data, critic_quote_data, stat_dict
     
     def get_user_scores_and_data(self):
         html_text = requests.get(self.USER_URL, headers=self.HEADERS).text
