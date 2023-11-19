@@ -12,7 +12,13 @@ class Support():
     
     def data_length(self, score_data):
         return len(score_data)
-    
+
+    def max_value(self, score_data):
+        pass
+
+    def min_value(self, score_data):
+        pass
+
     def score_mean(self, score_data):
         return round(np.mean(score_data), 2)
 
