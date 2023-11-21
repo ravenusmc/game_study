@@ -22,7 +22,7 @@ def fetchGameReviews():
         game_title_lowercase = support.lower_case_all_letters(post_data)
         corrected_game_title = support.add_dash_to_game_titles(game_title_lowercase)
         scrape = Scraping(corrected_game_title)
-        data_container = []
+        data_container = {}
         game_title = scrape.get_title_of_game()
         data_container.append(game_title)
         scores = scrape.get_scores_of_game()
