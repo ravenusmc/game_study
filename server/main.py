@@ -25,11 +25,12 @@ def fetchGameReviews():
         data_container = {}
         game_title = scrape.get_title_of_game()
         data_container['game_title'] = game_title
-        # data_container.append(game_title)
         scores = scrape.get_scores_of_game()
         data_container['scores'] = scores
-        # data_container.append(scores)
-        # critic_score_data, critic_quote_data, stat_dict = scrape.get_critic_scores_and_data()
+        critic_score_data, critic_quote_data, stat_dict = scrape.get_critic_scores_and_data()
+        data_container['critic_score_data'] = critic_score_data
+        data_container['critic_quote_data'] = critic_quote_data
+        data_container['stat_dict'] = stat_dict
         # critic_language_data, critic_sentiment_average = sentiment.get_sentiment(critic_quote_data)
         # data_container.append(critic_score_data)
         # data_container.append(critic_quote_data)

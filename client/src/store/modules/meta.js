@@ -26,9 +26,9 @@ const actions = {
 		axios.post(path, payload)
 			.then((res) => {
 				console.log(res.data)
-				commit('setGameTitle', res.data[0]);
-				commit('setCriticScore', res.data[1][0])
-				commit('setReviewScore', res.data[1][1])
+				commit('setGameTitle', res.data['game_title']);
+				commit('setCriticScore', res.data['scores'][0])
+				commit('setReviewScore', res.data['scores'][1])
 				commit('setNoData', false)
 			})
 			.catch((error) => {
