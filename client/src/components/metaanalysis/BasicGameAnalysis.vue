@@ -1,6 +1,8 @@
 <template>
 <div>
-	<h2>{{ GameTitle }}</h2>
+	<div>
+		<h2 class='center'>{{ GameTitle }}</h2>
+	</div>
 	<p>The Critic score is: {{ criticScore }}</p>
 	<p>The Review score is: {{ reviewScore }}</p>
 </div>
