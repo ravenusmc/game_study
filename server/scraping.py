@@ -62,7 +62,6 @@ class Scraping():
         data_set_max = support.max_value(only_critic_score_data)
         stat_dict['Data_set_Max_Value'] = data_set_max
         data_set_max = support.max_value(only_critic_score_data)
-
         critic_score_mean = support.score_mean(only_critic_score_data)
         stat_dict['Critic_Score_Mean'] = critic_score_mean
         critic_score_mode = support.score_mode(only_critic_score_data)
@@ -81,7 +80,6 @@ class Scraping():
         columns_two = ['Review Number', 'Quote']
         user_score_data.append(columns)
         user_quote_data.append(columns_two)
-        # s = score and q = text other variables, date and url link, may be used down the road
         for q, s, u, d in re.findall(r'quote:"(.*?)",.*?score:(\d+).*?url:"(.*?)",.*?date:"(.*?)"', html_text):
             rows = []
             rows_2 = []
@@ -89,6 +87,7 @@ class Scraping():
             rows.append(s)
             rows_2.append(count)
             rows_2.append(q)
+            only_user_score_data.append(float(s))
             user_score_data.append(rows)
             user_quote_data.append(rows_2)
             count += 1
