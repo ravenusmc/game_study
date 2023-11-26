@@ -9,6 +9,7 @@
 	</div>
 	<section>
 		<CriticData/>
+		<UserData/>
 	</section>
 </div>
 </template>
@@ -17,11 +18,13 @@
 import { mapGetters } from "vuex";
 
 import CriticData from "@/components/metaanalysis/CriticData.vue";
+import UserData from "@/components/metaanalysis/UserData.vue";
 
 export default {
 	name: 'BasicGameAnalysis',
 	components: {
-    CriticData,
+		CriticData,
+		UserData
   },
 	computed: {
 		...mapGetters("meta", 
@@ -48,6 +51,11 @@ p {
 
 span {
 	font-weight: bold;
+}
+
+section {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 </style>
