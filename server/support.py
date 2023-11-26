@@ -14,10 +14,10 @@ class Support():
         return len(score_data)
 
     def max_value(self, score_data):
-        return score_data.max()
+        return max(score_data)
 
     def min_value(self, score_data):
-        return score_data.min()
+        return min(score_data)
 
     def score_mean(self, score_data):
         return round(np.mean(score_data), 2)

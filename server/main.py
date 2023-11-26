@@ -31,18 +31,16 @@ def fetchGameReviews():
         data_container['critic_score_data'] = critic_score_data
         data_container['critic_quote_data'] = critic_quote_data
         data_container['stat_dict'] = stat_dict
-        # critic_language_data, critic_sentiment_average = sentiment.get_sentiment(critic_quote_data)
-        # data_container.append(critic_score_data)
-        # data_container.append(critic_quote_data)
-        # data_container.append(stat_dict)
-        # data_container.append(critic_language_data)
-        # data_container.append(critic_sentiment_average)
-        # user_score_data, user_quote_data = scrape.get_user_scores_and_data()
-        # user_language_data, user_sentiment_average = sentiment.get_sentiment(user_quote_data)
-        # data_container.append(user_score_data)
-        # data_container.append(user_quote_data)
-        # data_container.append(user_language_data)
-        # data_container.append(user_sentiment_average)
+        critic_language_data, critic_sentiment_average = sentiment.get_sentiment(critic_quote_data)
+        data_container['critic_language_data'] = critic_language_data
+        data_container['critic_sentiment_average'] = critic_sentiment_average
+        user_score_data, user_quote_data, user_stat_dict = scrape.get_user_scores_and_data()
+        data_container['user_score_data'] = user_score_data
+        data_container['user_quote_data'] = user_quote_data
+        data_container['user_stat_dict'] = user_stat_dict
+        user_language_data, user_sentiment_average = sentiment.get_sentiment(user_quote_data)
+        data_container['user_language_data'] = user_language_data
+        data_container['user_sentiment_average'] = user_sentiment_average
     return jsonify(data_container)
 
 if __name__ == '__main__':

@@ -71,6 +71,7 @@ class Scraping():
         return critic_score_data, critic_quote_data, stat_dict
     
     def get_user_scores_and_data(self):
+        support = Support()
         html_text = requests.get(self.USER_URL, headers=self.HEADERS).text
         count = 0
         user_score_data = []
@@ -91,4 +92,16 @@ class Scraping():
             user_score_data.append(rows)
             user_quote_data.append(rows_2)
             count += 1
-        return user_score_data, user_quote_data
+        user_stat_dict = {}
+        data_set_length = support.data_length(only_user_score_data)
+        user_stat_dict['Data_set_length'] = data_set_length
+        data_set_max = support.max_value(only_user_score_data)
+        user_stat_dict['Data_set_Max_Value'] = data_set_max
+        data_set_max = support.max_value(only_user_score_data)
+        critic_score_mean = support.score_mean(only_user_score_data)
+        user_stat_dict['Critic_Score_Mean'] = critic_score_mean
+        critic_score_mode = support.score_mode(only_user_score_data)
+        user_stat_dict['Critic_Score_Mode'] = critic_score_mode
+        critic_score_median = support.score_median(only_user_score_data)
+        user_stat_dict['Critic_Score_Median'] = critic_score_median
+        return user_score_data, user_quote_data, user_stat_dict
