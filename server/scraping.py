@@ -61,7 +61,8 @@ class Scraping():
         stat_dict['Data_set_length'] = data_set_length
         data_set_max = support.max_value(only_critic_score_data)
         stat_dict['Data_set_Max_Value'] = data_set_max
-        data_set_max = support.max_value(only_critic_score_data)
+        data_set_min = support.min_value(only_critic_score_data)
+        stat_dict['data_set_min'] = data_set_min
         critic_score_mean = support.score_mean(only_critic_score_data)
         stat_dict['Critic_Score_Mean'] = critic_score_mean
         critic_score_mode = support.score_mode(only_critic_score_data)
@@ -97,7 +98,8 @@ class Scraping():
         user_stat_dict['Data_set_length'] = data_set_length
         data_set_max = support.max_value(only_user_score_data)
         user_stat_dict['Data_set_Max_Value'] = data_set_max
-        data_set_max = support.max_value(only_user_score_data)
+        data_set_min = support.min_value(only_user_score_data)
+        user_stat_dict['data_set_min'] = data_set_min
         critic_score_mean = support.score_mean(only_user_score_data)
         user_stat_dict['Critic_Score_Mean'] = critic_score_mean
         critic_score_mode = support.score_mode(only_user_score_data)

@@ -10,6 +10,12 @@ const data = {
 	GameTitle: '',
 	criticScore: 0,
 	reviewScore: 0,
+	critic_score_mean: 0,
+	critic_score_median: 0, 
+	critic_score_mode: 0, 
+	critic_score_max_value: 0,
+	critic_score_min_value: 0,
+	critic_score_length: 0, 
 };
 
 const getters = {
@@ -17,6 +23,12 @@ const getters = {
 	GameTitle: (state) => state.GameTitle,
 	criticScore: (state) => state.criticScore,
 	reviewScore: (state) => state.reviewScore,
+	critic_score_mean: (state) => state.critic_score_mean,
+	critic_score_median: (state) => state.critic_score_median, 
+	critic_score_mode: (state) => state.critic_score_mode,
+	critic_score_max_value: (state) => state.critic_score_max_value,
+	critic_score_min_value: (state) => state.critic_score_min_value,
+	critic_score_length: (state) => state. critic_score_length
 };
 
 const actions = {

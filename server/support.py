@@ -29,10 +29,9 @@ class Support():
     def score_median(self, score_data):
         length_of_list = len(score_data)
         score_data.sort()
-        print(score_data)
         if length_of_list % 2 == 0: 
             midpoint = (length_of_list // 2) - 1
             return (score_data[midpoint] + score_data[midpoint+1]) / 2
         else:
-            element_index = N // 2 
+            element_index = length_of_list // 2 
             return score_data[element_index]
