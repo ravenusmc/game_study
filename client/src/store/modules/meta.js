@@ -28,7 +28,7 @@ const getters = {
 	critic_score_mode: (state) => state.critic_score_mode,
 	critic_score_max_value: (state) => state.critic_score_max_value,
 	critic_score_min_value: (state) => state.critic_score_min_value,
-	critic_score_length: (state) => state. critic_score_length
+	critic_score_length: (state) => state.critic_score_length,
 };
 
 const actions = {
@@ -41,13 +41,18 @@ const actions = {
 				commit('setGameTitle', res.data['game_title']);
 				commit('setCriticScore', res.data['scores'][0])
 				commit('setReviewScore', res.data['scores'][1])
+				commit('setCriticScoreMean', res.data['stat_dict']['Critic_Score_Mean'])
+				commit('setCriticScoreMedian', res.data['stat_dict']['Critic_Score_Median'])
+				commit('setCriticScoreMode', res.data['stat_dict']['Critic_Score_Mode'])
+				commit('setCriticScoreMaxValue', res.data['stat_dict']['Data_set_Max_Value'])
+				commit('setCriticScoreMinValue', res.data['stat_dict']['data_set_min'])
+				commit('setCriticScoreLength', res.data['stat_dict']['Data_set_length'])
 				commit('setNoData', false)
 			})
 			.catch((error) => {
 				console.log(error);
 			});
 	},
-
 
 };
 
@@ -67,7 +72,33 @@ const mutations = {
 
 	setReviewScore(state, value) {
 		state.reviewScore = value;
-	}
+	},
+
+	setCriticScoreMean(state, value) {
+		state.critic_score_mean = value;
+	},
+
+	setCriticScoreMedian(state, value) {
+		state.critic_score_median = value;
+	},
+
+	setCriticScoreMode(state, value) {
+		state.critic_score_mode = value;
+	},
+
+	setCriticScoreMaxValue(state, value) {
+		state.critic_score_max_value = value;
+	},
+
+	setCriticScoreMinValue(state, value) {
+		state.critic_score_min_value = value;
+	},
+
+	setCriticScoreLength(state, value) {
+		state.critic_score_length = value;
+	},
+
+	 
 
 };
 
