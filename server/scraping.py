@@ -101,9 +101,9 @@ class Scraping():
         data_set_min = support.min_value(only_user_score_data)
         user_stat_dict['data_set_min'] = data_set_min
         critic_score_mean = support.score_mean(only_user_score_data)
-        user_stat_dict['Critic_Score_Mean'] = critic_score_mean
+        user_stat_dict['User_Score_Mean'] = critic_score_mean
         critic_score_mode = support.score_mode(only_user_score_data)
-        user_stat_dict['Critic_Score_Mode'] = critic_score_mode
+        user_stat_dict['User_Score_Mode'] = critic_score_mode
         critic_score_median = support.score_median(only_user_score_data)
-        user_stat_dict['Critic_Score_Median'] = critic_score_median
+        user_stat_dict['User_Score_Median'] = critic_score_median
         return user_score_data, user_quote_data, user_stat_dict
