@@ -61,9 +61,7 @@ const getters = {
 // User_Score_Mode
 // : 
 // 10
-// data_set_min
-// : 
-// 2
+
 
 const actions = {
 
@@ -81,10 +79,9 @@ const actions = {
 				commit('setCriticScoreMaxValue', res.data['stat_dict']['Data_set_Max_Value'])
 				commit('setCriticScoreMinValue', res.data['stat_dict']['data_set_min'])
 				commit('setCriticScoreLength', res.data['stat_dict']['Data_set_length'])
-				console.log(res.data['user_stat_dict']['User_Score_Mean'])
 				commit('setUserScoreMean', res.data['user_stat_dict']['User_Score_Mean'])
-				commit('setUserScoreMedian', res.data['user_stat_dict']['Critic_Score_Median'])
-				commit('setUserScoreMode', res.data['user_stat_dict']['Critic_Score_Mode'])
+				commit('setUserScoreMedian', res.data['user_stat_dict']['User_Score_Median'])
+				commit('setUserScoreMode', res.data['user_stat_dict']['User_Score_Mode'])
 				commit('setUserScoreMaxValue', res.data['user_stat_dict']['Data_set_Max_Value'])
 				commit('setUserScoreMinValue', res.data['user_stat_dict']['data_set_min'])
 				commit('setUserScoreLength', res.data['user_stat_dict']['Data_set_length'])

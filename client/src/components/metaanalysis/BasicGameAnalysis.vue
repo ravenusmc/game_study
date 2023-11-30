@@ -7,7 +7,7 @@
 		<p>The Critic score is: <span>{{ criticScore }}</span></p>
 		<p>The User score is: <span>{{ reviewScore }}</span></p>
 	</div>
-	<section>
+	<section class='basic-data-section'>
 		<CriticData/>
 		<UserData/>
 	</section>
@@ -53,9 +53,10 @@ span {
 	font-weight: bold;
 }
 
-section {
+.basic-data-section {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	justify-items: center;
 }
 
 </style>
