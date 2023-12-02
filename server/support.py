@@ -37,8 +37,12 @@ class Support():
             return score_data[element_index]
     
     def interquartile_range(self, score_data):
+        print(score_data)
         data = np.array(score_data)
+        print(data)
         #calculate interquartile range 
-        q3, q1 = np.percentile(data, [75 ,25])
+        q3, q1 = np.percentile(data, [75,25])
+        lower_qualtile = q1 
+        upper_qualtile = q3
         iqr = q3 - q1
-        print(iqr)
+        return iqr, lower_qualtile, upper_qualtile

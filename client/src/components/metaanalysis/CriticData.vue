@@ -20,6 +20,15 @@
       <p>
         The Min of the data is: <span>{{ critic_score_min_value }}</span>
       </p>
+      <p>
+        The lower Qualtile is: <span>{{ critic_lower_quartile }}</span>
+      </p>
+      <p>
+        The Upper Qualtile is: <span>{{ critic_upper_quartile }}</span>
+      </p>
+      <p>
+        The Interquartile Range is: <span>{{ critic_interquartile_range }}</span>
+      </p>
     </div>
   </div>
 </template>
@@ -37,6 +46,9 @@ export default {
       "critic_score_max_value",
       "critic_score_min_value",
       "critic_score_length",
+      "critic_lower_quartile",
+      "critic_interquartile_range",
+      "critic_upper_quartile",
     ]),
   },
 };

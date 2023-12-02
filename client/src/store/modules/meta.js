@@ -16,6 +16,9 @@ const data = {
 	critic_score_max_value: 0,
 	critic_score_min_value: 0,
 	critic_score_length: 0, 
+	critic_lower_quartile: 0,
+	critic_interquartile_range: 0,
+	critic_upper_quartile: 0,
 	user_score_mean: 0,
 	user_score_median: 0, 
 	user_score_mode: 0, 
@@ -36,6 +39,9 @@ const getters = {
 	critic_score_max_value: (state) => state.critic_score_max_value,
 	critic_score_min_value: (state) => state.critic_score_min_value,
 	critic_score_length: (state) => state.critic_score_length,
+	critic_lower_quartile: (state) => state.critic_lower_quartile,
+	critic_interquartile_range: (state) => state.critic_interquartile_range,
+	critic_upper_quartile: (state) => state.critic_upper_quartile,
 	user_score_mean: (state) => state.user_score_mean,
 	user_score_median: (state) => state.user_score_median, 
 	user_score_mode: (state) => state.user_score_mode,
@@ -43,24 +49,6 @@ const getters = {
 	user_score_min_value: (state) => state.user_score_min_value,
 	user_score_length: (state) => state.user_score_length,
 };
-
-// user_stat_dict
-// : 
-// Data_set_Max_Value
-// : 
-// 10
-// Data_set_length
-// : 
-// 24
-// User_Score_Mean
-// : 
-// 8.58
-// User_Score_Median
-// : 
-// 9
-// User_Score_Mode
-// : 
-// 10
 
 
 const actions = {
@@ -79,6 +67,9 @@ const actions = {
 				commit('setCriticScoreMaxValue', res.data['stat_dict']['Data_set_Max_Value'])
 				commit('setCriticScoreMinValue', res.data['stat_dict']['data_set_min'])
 				commit('setCriticScoreLength', res.data['stat_dict']['Data_set_length'])
+				commit('setCriticLowerQuartile', res.data['stat_dict']['lower_qualtile'])
+				commit('setCriticInterquartileRange', res.data['stat_dict']['interquartile_range'])
+				commit('setCriticUpperQuartile', res.data['stat_dict']['upper_qualtile'])
 				commit('setUserScoreMean', res.data['user_stat_dict']['User_Score_Mean'])
 				commit('setUserScoreMedian', res.data['user_stat_dict']['User_Score_Median'])
 				commit('setUserScoreMode', res.data['user_stat_dict']['User_Score_Mode'])
@@ -134,6 +125,18 @@ const mutations = {
 
 	setCriticScoreLength(state, value) {
 		state.critic_score_length = value;
+	},
+
+	setCriticLowerQuartile(state, value) {
+		state.critic_lower_quartile = value;
+	},
+
+	setCriticInterquartileRange(state, value) {
+		state.critic_interquartile_range = value;
+	},
+
+	setCriticUpperQuartile(state, value) {
+		state.critic_upper_quartile = value;
 	},
 
 	setUserScoreMean(state, value) {

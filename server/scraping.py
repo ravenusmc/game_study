@@ -69,6 +69,10 @@ class Scraping():
         stat_dict['Critic_Score_Mode'] = critic_score_mode
         critic_score_median = support.score_median(only_critic_score_data)
         stat_dict['Critic_Score_Median'] = critic_score_median
+        iqr, lower_qualtile, upper_qualtile = support.interquartile_range(only_critic_score_data)
+        stat_dict['interquartile_range'] = iqr
+        stat_dict['lower_qualtile'] = lower_qualtile
+        stat_dict['upper_qualtile'] = upper_qualtile
         return critic_score_data, critic_quote_data, stat_dict
     
     def get_user_scores_and_data(self):
@@ -100,10 +104,14 @@ class Scraping():
         user_stat_dict['Data_set_Max_Value'] = data_set_max
         data_set_min = support.min_value(only_user_score_data)
         user_stat_dict['data_set_min'] = data_set_min
-        critic_score_mean = support.score_mean(only_user_score_data)
-        user_stat_dict['User_Score_Mean'] = critic_score_mean
-        critic_score_mode = support.score_mode(only_user_score_data)
-        user_stat_dict['User_Score_Mode'] = critic_score_mode
-        critic_score_median = support.score_median(only_user_score_data)
-        user_stat_dict['User_Score_Median'] = critic_score_median
+        user_score_mean = support.score_mean(only_user_score_data)
+        user_stat_dict['User_Score_Mean'] = user_score_mean
+        user_score_mode = support.score_mode(only_user_score_data)
+        user_stat_dict['User_Score_Mode'] = user_score_mode
+        user_score_median = support.score_median(only_user_score_data)
+        user_stat_dict['User_Score_Median'] = user_score_median
+        iqr, lower_qualtile, upper_qualtile = support.interquartile_range(only_user_score_data)
+        user_stat_dict['interquartile_range'] = iqr
+        user_stat_dict['lower_qualtile'] = lower_qualtile
+        user_stat_dict['upper_qualtile'] = upper_qualtile
         return user_score_data, user_quote_data, user_stat_dict
