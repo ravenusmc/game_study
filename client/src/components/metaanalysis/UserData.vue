@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class='center'>User Data</h3>
+    <h3 class="center">User Data</h3>
     <p>
       The Mean of the data is: <span>{{ user_score_mean }}</span>
     </p>
@@ -19,6 +19,15 @@
     <p>
       The Min of the data is: <span>{{ user_score_min_value }}</span>
     </p>
+    <p>
+      The lower Qualtile is: <span>{{ user_lower_quartile }}</span>
+    </p>
+    <p>
+      The Upper Qualtile is: <span>{{ user_upper_quartile }}</span>
+    </p>
+    <p>
+      The Interquartile Range is: <span>{{ user_interquartile_range }}</span>
+    </p>
   </div>
 </template>
 
@@ -35,6 +44,9 @@ export default {
       "user_score_max_value",
       "user_score_min_value",
       "user_score_length",
+      "user_lower_quartile",
+      "user_interquartile_range",
+      "user_upper_quartile",
     ]),
   },
 };

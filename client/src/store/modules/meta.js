@@ -25,6 +25,9 @@ const data = {
 	user_score_max_value: 0,
 	user_score_min_value: 0,
 	user_score_length: 0, 
+	user_lower_quartile: 0,
+	user_interquartile_range: 0,
+	user_upper_quartile: 0,
 
 };
 
@@ -48,6 +51,9 @@ const getters = {
 	user_score_max_value: (state) => state.user_score_max_value,
 	user_score_min_value: (state) => state.user_score_min_value,
 	user_score_length: (state) => state.user_score_length,
+	user_lower_quartile: (state) => state.user_lower_quartile,
+	user_interquartile_range: (state) => state.user_interquartile_range,
+	user_upper_quartile: (state) => state.user_upper_quartile,
 };
 
 
@@ -76,6 +82,9 @@ const actions = {
 				commit('setUserScoreMaxValue', res.data['user_stat_dict']['Data_set_Max_Value'])
 				commit('setUserScoreMinValue', res.data['user_stat_dict']['data_set_min'])
 				commit('setUserScoreLength', res.data['user_stat_dict']['Data_set_length'])
+				commit('setUserLowerQuartile', res.data['user_stat_dict']['lower_qualtile'])
+				commit('setUserInterquartileRange', res.data['user_stat_dict']['interquartile_range'])
+				commit('setUserUpperQuartile', res.data['user_stat_dict']['upper_qualtile'])
 				commit('setNoData', false)
 			})
 			.catch((error) => {
@@ -163,7 +172,17 @@ const mutations = {
 		state.user_score_length = value;
 	},
 
-	 
+	setUserLowerQuartile(state, value) {
+		state.user_lower_quartile = value;
+	},
+
+	setUserInterquartileRange(state, value) {
+		state.user_interquartile_range = value;
+	},
+
+	setUserUpperQuartile(state, value) {
+		state.user_upper_quartile = value;
+	},
 
 };
 

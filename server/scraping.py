@@ -112,6 +112,7 @@ class Scraping():
         user_stat_dict['User_Score_Median'] = user_score_median
         iqr, lower_qualtile, upper_qualtile = support.interquartile_range(only_user_score_data)
         user_stat_dict['interquartile_range'] = iqr
+        print(upper_qualtile)
         user_stat_dict['lower_qualtile'] = lower_qualtile
         user_stat_dict['upper_qualtile'] = upper_qualtile
         return user_score_data, user_quote_data, user_stat_dict
