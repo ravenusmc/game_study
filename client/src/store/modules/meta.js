@@ -10,6 +10,7 @@ const data = {
 	GameTitle: '',
 	criticScore: 0,
 	reviewScore: 0,
+	allCriticData: [],
 	critic_score_mean: 0,
 	critic_score_median: 0, 
 	critic_score_mode: 0, 
@@ -36,6 +37,7 @@ const getters = {
 	GameTitle: (state) => state.GameTitle,
 	criticScore: (state) => state.criticScore,
 	reviewScore: (state) => state.reviewScore,
+	allCriticData: (state) => state.allCriticData,
 	critic_score_mean: (state) => state.critic_score_mean,
 	critic_score_median: (state) => state.critic_score_median, 
 	critic_score_mode: (state) => state.critic_score_mode,
@@ -67,6 +69,7 @@ const actions = {
 				commit('setGameTitle', res.data['game_title']);
 				commit('setCriticScore', res.data['scores'][0])
 				commit('setReviewScore', res.data['scores'][1])
+				commit('setAllCriticData', res.data['stat_dict'])
 				commit('setCriticScoreMean', res.data['stat_dict']['Critic_Score_Mean'])
 				commit('setCriticScoreMedian', res.data['stat_dict']['Critic_Score_Median'])
 				commit('setCriticScoreMode', res.data['stat_dict']['Critic_Score_Mode'])
@@ -104,6 +107,10 @@ const mutations = {
 		state.GameTitle = value;
 	},
 
+	setAllCriticData(state, value) {
+		state.allCriticData = value;
+	},
+	
 	setCriticScore(state, value) {
 		state.criticScore = value;
 	},
