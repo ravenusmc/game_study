@@ -21,7 +21,7 @@ export default {
 
 <style scope>
 section {
-  height: 700px;
+  height: 400px;
 }
 
 .pic-section {

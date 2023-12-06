@@ -20,6 +20,7 @@ const data = {
 	critic_lower_quartile: 0,
 	critic_interquartile_range: 0,
 	critic_upper_quartile: 0,
+	allUserData: [],
 	user_score_mean: 0,
 	user_score_median: 0, 
 	user_score_mode: 0, 
@@ -47,6 +48,7 @@ const getters = {
 	critic_lower_quartile: (state) => state.critic_lower_quartile,
 	critic_interquartile_range: (state) => state.critic_interquartile_range,
 	critic_upper_quartile: (state) => state.critic_upper_quartile,
+	allUserData: (state) => state.allUserData,
 	user_score_mean: (state) => state.user_score_mean,
 	user_score_median: (state) => state.user_score_median, 
 	user_score_mode: (state) => state.user_score_mode,
@@ -71,7 +73,7 @@ const actions = {
 				commit('setReviewScore', res.data['scores'][1])
 				commit('setAllCriticData', res.data['stat_dict'])
 				commit('setCriticScoreMean', res.data['stat_dict']['Critic_Score_Mean'])
-				commit('setCriticScoreMedian', res.data['stat_dict']['Critic_Score_Median'])
+				commit('setCriticScoreMedian', res.data['stat_dict']['median'])
 				commit('setCriticScoreMode', res.data['stat_dict']['Critic_Score_Mode'])
 				commit('setCriticScoreMaxValue', res.data['stat_dict']['Data_set_Max_Value'])
 				commit('setCriticScoreMinValue', res.data['stat_dict']['data_set_min'])
@@ -79,8 +81,9 @@ const actions = {
 				commit('setCriticLowerQuartile', res.data['stat_dict']['lower_qualtile'])
 				commit('setCriticInterquartileRange', res.data['stat_dict']['interquartile_range'])
 				commit('setCriticUpperQuartile', res.data['stat_dict']['upper_qualtile'])
+				commit('setAllUserScore', res.data['user_stat_dict'])
 				commit('setUserScoreMean', res.data['user_stat_dict']['User_Score_Mean'])
-				commit('setUserScoreMedian', res.data['user_stat_dict']['User_Score_Median'])
+				commit('setUserScoreMedian', res.data['user_stat_dict']['median'])
 				commit('setUserScoreMode', res.data['user_stat_dict']['User_Score_Mode'])
 				commit('setUserScoreMaxValue', res.data['user_stat_dict']['Data_set_Max_Value'])
 				commit('setUserScoreMinValue', res.data['user_stat_dict']['data_set_min'])
@@ -153,6 +156,10 @@ const mutations = {
 
 	setCriticUpperQuartile(state, value) {
 		state.critic_upper_quartile = value;
+	},
+
+	setAllUserScore(state, value) {
+		state.allUserData = value;
 	},
 
 	setUserScoreMean(state, value) {

@@ -12,8 +12,12 @@
 		<UserData/>
 	</section>
 	<section class='range-graph-section'>
-		<CriticRangeGraph :items="allCriticData" />
-		<p>{{ name }}</p>
+		<div>
+			<BoxPlotGraph :items="allCriticData" />		
+		</div>
+		<div>
+			<BoxPlotGraph :items="allUserData" />
+		</div>	
 	</section>
 </div>
 </template>
@@ -23,19 +27,14 @@ import { mapGetters } from "vuex";
 
 import CriticData from "@/components/metaanalysis/CriticData.vue";
 import UserData from "@/components/metaanalysis/UserData.vue";
-import CriticRangeGraph from "@/components/metaanalysis/CriticRangeGraph.vue";
+import BoxPlotGraph from "@/components/metaanalysis/BoxPlotGraph.vue";
 
 export default {
 	name: 'BasicGameAnalysis',
-	data() {
-		return {
-			name: critic_score_median,
-		}
-	},
 	components: {
 		CriticData,
 		UserData,
-		CriticRangeGraph
+		BoxPlotGraph,
   },
 	computed: {
 		...mapGetters("meta", 
@@ -43,13 +42,9 @@ export default {
 		"allCriticData",
 		"criticScore",
 		"reviewScore",
-		"critic_score_median"]),
+		"critic_score_median",
+		"allUserData"]),
 	},
-	// methods: {
-  //   sendData() {
-  //     return this.allCriticData;
-  //   },
-  // },
 }
 
 </script>
@@ -75,6 +70,10 @@ span {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	justify-items: center;
+}
+
+.range-graph-section {
+	border: 2px solid blue;
 }
 
 </style>

@@ -30,8 +30,7 @@ export default {
 };
 </script>
 
-<style scope
-    BasicGameAnalysisd>
+<style scope>
 .title-div {
   margin-top: 50px;
 }
