@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- {{items}} -->
     <div id="my_dataviz"></div>
   </div>
 </template>
@@ -15,6 +16,7 @@ export default {
       score_data: this.items["Data"],
       median: this.items["median"],
       min: this.items["data_set_min"],
+      max: this.items["Data_set_Max_Value"],
       q1: this.items["lower_qualtile"],
       q3: this.items["upper_qualtile"],
     };
@@ -47,8 +49,8 @@ export default {
       let median = this.median;
       let q3 = this.q3;
       let interQuantileRange = q3 - q1;
-      let min = q1 - 1.5 * interQuantileRange;
-      let max = q1 + 1.5 * interQuantileRange;
+      let min = this.min;
+      let max = this.max;
 
       let y = ''
       // Show the Y scale

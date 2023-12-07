@@ -35,6 +35,11 @@ export default {
 		CriticData,
 		UserData,
 		BoxPlotGraph,
+	},
+	data() {
+    return {
+      criticData: [],
+    };
   },
 	computed: {
 		...mapGetters("meta", 
@@ -45,6 +50,21 @@ export default {
 		"critic_score_median",
 		"allUserData"]),
 	},
+	methods: {
+		setAllCriticData() {
+			console.log('here')
+			this.criticData = this.allCriticData
+		}
+	},
+	watch: {
+		allCriticData: {
+			handler(value) {
+				if (value) {
+					this.setAllCriticData()
+				}
+			}
+		}
+	}
 }
 
 </script>
