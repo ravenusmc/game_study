@@ -12,13 +12,10 @@
 		<UserData/>
 	</section>
 	<section class='range-graph-section'>
-		<div>
 			<BoxPlotGraph :items="allCriticData" />		
-		</div>
-		<div>
-			<BoxPlotGraph :items="allUserData" />
-		</div>	
+			<UserBoxPlotGraph :items="allUserData" />
 	</section>
+			<!-- <BoxPlotGraph :items="allUserData" />		 -->
 </div>
 </template>
 
@@ -28,6 +25,7 @@ import { mapGetters } from "vuex";
 import CriticData from "@/components/metaanalysis/CriticData.vue";
 import UserData from "@/components/metaanalysis/UserData.vue";
 import BoxPlotGraph from "@/components/metaanalysis/BoxPlotGraph.vue";
+import UserBoxPlotGraph from "@/components/metaanalysis/UserBoxPlotGraph.vue";
 
 export default {
 	name: 'BasicGameAnalysis',
@@ -35,6 +33,7 @@ export default {
 		CriticData,
 		UserData,
 		BoxPlotGraph,
+		UserBoxPlotGraph,
 	},
 	data() {
     return {
@@ -50,21 +49,21 @@ export default {
 		"critic_score_median",
 		"allUserData"]),
 	},
-	methods: {
-		setAllCriticData() {
-			console.log('here')
-			this.criticData = this.allCriticData
-		}
-	},
-	watch: {
-		allCriticData: {
-			handler(value) {
-				if (value) {
-					this.setAllCriticData()
-				}
-			}
-		}
-	}
+	// methods: {
+	// 	setAllCriticData() {
+	// 		console.log('here')
+	// 		this.criticData = this.allCriticData
+	// 	}
+	// },
+	// watch: {
+	// 	allCriticData: {
+	// 		handler(value) {
+	// 			if (value) {
+	// 				this.setAllCriticData()
+	// 			}
+	// 		}
+	// 	}
+	// }
 }
 
 </script>
@@ -94,6 +93,11 @@ span {
 
 .range-graph-section {
 	border: 2px solid blue;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
 }
+
+
 
 </style>

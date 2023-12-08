@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div id='my_dataviz'></div>
+    <!-- {{ items }} -->
+    <!-- <div id="my_dataviz"></div> -->
+    <div id='UserDataViz'></div>
+    <!-- <button @click="updateData()">Update Data</button> -->
   </div>
 </template>
 
@@ -9,6 +12,16 @@ import * as d3 from "d3";
 import d3Tip from "d3-tip";
 
 export default {
+  data() {
+    return {
+      // score_data: this.items["Data"],
+      // median: this.items["median"],
+      // min: this.items["data_set_min"],
+      // max: this.items["Data_set_Max_Value"],
+      // q1: this.items["lower_qualtile"],
+      // q3: this.items["upper_qualtile"],
+    };
+  },
   props: {
     items: {
       type: Object,
@@ -17,6 +30,7 @@ export default {
   },
   mounted() {
     this.createChart();
+    // this.$watch("items", this.createChart, { deep: true });
   },
   watch: {
     items: {
@@ -25,20 +39,21 @@ export default {
     },
   },
   methods: {
+    // updateData() {
+    //   this.score_data = this.items["Data"];
+    // },
     createChart() {
 
       // remove the old chart
-      d3.select('#my_dataviz svg').remove();
+      d3.select('#UserDataViz svg').remove();
 
       let margin = { top: 10, right: 30, bottom: 30, left: 40 };
       let width = 400 - margin.left - margin.right;
       let height = 400 - margin.top - margin.bottom;
-      // let last_value = this.items["Data"].pop();
-      // console.log(this.items["data_set_min"])
 
       // append the svg object to the body of the page
       var svg = d3
-        .select("#my_dataviz")
+        .select("#UserDataViz")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -46,6 +61,8 @@ export default {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       // Compute summary statistics used for the box:
+      // let q1 = this.q1;
+      // let q3 = this.q3;
       let interQuantileRange = this.items["upper_qualtile"] - this.items["lower_qualtile"];
 
       let y = "";
@@ -108,6 +125,12 @@ export default {
         .style("font-color", "black");
 
     },
+    // updateData() {
+    //   // remove the old chart
+    //   d3.select('#my_dataviz svg').remove();
+    //   // // create the new chart with the updated data
+    //   // this.createChart();
+    // },
   },
 };
 </script>
