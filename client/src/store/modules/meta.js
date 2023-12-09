@@ -13,7 +13,8 @@ const data = {
 	allCriticData: [],
 	critic_score_mean: 0,
 	critic_score_median: 0, 
-	critic_score_mode: 0, 
+	critic_score_mode: 0,
+	critic_score_std_dev: 0, 
 	critic_score_max_value: 0,
 	critic_score_min_value: 0,
 	critic_score_length: 0, 
@@ -24,6 +25,7 @@ const data = {
 	user_score_mean: 0,
 	user_score_median: 0, 
 	user_score_mode: 0, 
+	user_score_std_dev: 0, 
 	user_score_max_value: 0,
 	user_score_min_value: 0,
 	user_score_length: 0, 
@@ -42,6 +44,7 @@ const getters = {
 	critic_score_mean: (state) => state.critic_score_mean,
 	critic_score_median: (state) => state.critic_score_median, 
 	critic_score_mode: (state) => state.critic_score_mode,
+	critic_score_std_dev: (state) => state.critic_score_std_dev,
 	critic_score_max_value: (state) => state.critic_score_max_value,
 	critic_score_min_value: (state) => state.critic_score_min_value,
 	critic_score_length: (state) => state.critic_score_length,
@@ -52,6 +55,7 @@ const getters = {
 	user_score_mean: (state) => state.user_score_mean,
 	user_score_median: (state) => state.user_score_median, 
 	user_score_mode: (state) => state.user_score_mode,
+	user_score_std_dev: (state) => state.user_score_std_dev,
 	user_score_max_value: (state) => state.user_score_max_value,
 	user_score_min_value: (state) => state.user_score_min_value,
 	user_score_length: (state) => state.user_score_length,
@@ -75,6 +79,7 @@ const actions = {
 				commit('setCriticScoreMean', res.data['stat_dict']['Critic_Score_Mean'])
 				commit('setCriticScoreMedian', res.data['stat_dict']['median'])
 				commit('setCriticScoreMode', res.data['stat_dict']['Critic_Score_Mode'])
+				commit('setCriticScoreStdDev', res.data['stat_dict']['standard_deviation'])
 				commit('setCriticScoreMaxValue', res.data['stat_dict']['Data_set_Max_Value'])
 				commit('setCriticScoreMinValue', res.data['stat_dict']['data_set_min'])
 				commit('setCriticScoreLength', res.data['stat_dict']['Data_set_length'])
@@ -85,6 +90,7 @@ const actions = {
 				commit('setUserScoreMean', res.data['user_stat_dict']['User_Score_Mean'])
 				commit('setUserScoreMedian', res.data['user_stat_dict']['median'])
 				commit('setUserScoreMode', res.data['user_stat_dict']['User_Score_Mode'])
+				commit('setUserScoreStdDev', res.data['user_stat_dict']['standard_deviation'])
 				commit('setUserScoreMaxValue', res.data['user_stat_dict']['Data_set_Max_Value'])
 				commit('setUserScoreMinValue', res.data['user_stat_dict']['data_set_min'])
 				commit('setUserScoreLength', res.data['user_stat_dict']['Data_set_length'])
@@ -134,6 +140,10 @@ const mutations = {
 		state.critic_score_mode = value;
 	},
 
+	setCriticScoreStdDev(state, value) {
+		state.critic_score_std_dev = value;
+	},
+
 	setCriticScoreMaxValue(state, value) {
 		state.critic_score_max_value = value;
 	},
@@ -172,6 +182,10 @@ const mutations = {
 
 	setUserScoreMode(state, value) {
 		state.user_score_mode = value;
+	},
+
+	setUserScoreStdDev(state, value) {
+		state.user_score_std_dev = value;
 	},
 
 	setUserScoreMaxValue(state, value) {

@@ -25,4 +25,10 @@ export default {
 .center {
   text-align: center;
 }
+
+.arrange-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
 </style>

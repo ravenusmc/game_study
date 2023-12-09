@@ -24,6 +24,9 @@ class Support():
 
     def score_mode(self, score_data):
         return max(set(score_data), key=score_data.count)
+    
+    def get_standard_deviation(self, score_data):
+        return float("{:.2f}".format(np.std(score_data)))
 
     # The middle value 
     def score_median(self, score_data):

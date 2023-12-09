@@ -70,6 +70,8 @@ class Scraping():
         stat_dict['Critic_Score_Mode'] = critic_score_mode
         critic_score_median = support.score_median(only_critic_score_data)
         stat_dict['median'] = critic_score_median
+        standard_deviation = support.get_standard_deviation(only_critic_score_data)
+        stat_dict['standard_deviation'] = standard_deviation
         iqr, lower_qualtile, upper_qualtile = support.interquartile_range(only_critic_score_data)
         stat_dict['interquartile_range'] = iqr
         stat_dict['lower_qualtile'] = lower_qualtile
@@ -112,6 +114,8 @@ class Scraping():
         user_stat_dict['User_Score_Mode'] = user_score_mode
         user_score_median = support.score_median(only_user_score_data)
         user_stat_dict['median'] = user_score_median
+        standard_deviation = support.get_standard_deviation(only_user_score_data)
+        user_stat_dict['standard_deviation'] = standard_deviation
         iqr, lower_qualtile, upper_qualtile = support.interquartile_range(only_user_score_data)
         user_stat_dict['interquartile_range'] = iqr
         user_stat_dict['lower_qualtile'] = lower_qualtile

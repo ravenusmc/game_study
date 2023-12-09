@@ -89,10 +89,10 @@ span {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	justify-items: center;
+	height: 275px;
 }
 
 .range-graph-section {
-	border: 2px solid blue;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	justify-items: center;
