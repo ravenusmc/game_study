@@ -33,8 +33,6 @@ export default {
       let margin = { top: 10, right: 30, bottom: 30, left: 40 };
       let width = 400 - margin.left - margin.right;
       let height = 400 - margin.top - margin.bottom;
-      // let last_value = this.items["Data"].pop();
-      // console.log(this.items["data_set_min"])
 
       // append the svg object to the body of the page
       var svg = d3
