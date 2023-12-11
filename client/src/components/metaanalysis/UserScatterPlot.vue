@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="criticViz"></div>
+    <div id="UserViz"></div>
   </div>
 </template>
 
@@ -8,9 +8,9 @@
 import * as d3 from "d3";
 
 export default {
-  name: "CriticScatterPlot",
+  name: "UserScatterPlot",
   props: {
-    CriticData: {
+    UserData: {
       type: Object,
       required: true,
     },
@@ -33,7 +33,7 @@ export default {
 
       // append the svg object to the body of the page
       let svg = d3
-        .select("#criticViz")
+        .select("#UserViz")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -41,7 +41,7 @@ export default {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       // Add X axis
-      let x = d3.scaleLinear().domain([0, 100]).range([0, width]);
+      let x = d3.scaleLinear().domain([0, 10]).range([0, width]);
       svg
         .append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -55,7 +55,7 @@ export default {
       svg
         .append("g")
         .selectAll("dot")
-        .data(this.CriticData["Data"])
+        .data(this.UserData["Data"])
         .enter()
         .append("circle")
         .attr("cx", function (d) {
