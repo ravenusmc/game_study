@@ -47,3 +47,21 @@ class Support():
         upper_qualtile = q3
         iqr = q3 - q1
         return iqr, lower_qualtile, upper_qualtile
+    
+    def create_histogram(self, score_data):
+        data_in_hist = {}
+        data_in_hist['0-10'] = 0
+        data_in_hist['11-20'] = 0
+        data_in_hist['21-30'] = 0
+        data_in_hist['31-40'] = 0
+        data_in_hist['41-50'] = 0
+        data_in_hist['51-60'] = 0
+        data_in_hist['61-70'] = 0
+        data_in_hist['71-80'] = 0
+        data_in_hist['81-90'] = 0
+        data_in_hist['91-100'] = 0
+        for data in score_data:
+            if i <= 10:
+                count = data_in_hist['0-10']
+                count += 1 
+                data_in_hist['0-10'] = count
