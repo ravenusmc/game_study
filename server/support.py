@@ -61,7 +61,44 @@ class Support():
         data_in_hist['81-90'] = 0
         data_in_hist['91-100'] = 0
         for data in score_data:
-            if i <= 10:
+            if data <= 10:
                 count = data_in_hist['0-10']
                 count += 1 
                 data_in_hist['0-10'] = count
+            if data >= 11 and data <= 20:
+                count = data_in_hist['11-20']
+                count += 1 
+                data_in_hist['11-20'] = count
+            if data >= 21 and data <= 30:
+                count = data_in_hist['21-30']
+                count += 1 
+                data_in_hist['21-30'] = count
+            if data >= 31 and data <= 40:
+                count = data_in_hist['31-40']
+                count += 1 
+                data_in_hist['31-40'] = count
+            if data >= 41 and data <= 50:
+                count = data_in_hist['41-50']
+                count += 1 
+                data_in_hist['41-50'] = count
+            if data >=51 and data <= 60:
+                count = data_in_hist['51-60']
+                count += 1 
+                data_in_hist['51-60'] = count
+            if data >= 61 and data <= 70:
+                count = data_in_hist['61-70']
+                count += 1 
+                data_in_hist['61-70'] = count
+            if data >= 71 and data <= 80:
+                count = data_in_hist['71-80']
+                count += 1 
+                data_in_hist['71-80'] = count
+            if data >= 81 and data <= 90:
+                count = data_in_hist['81-90']
+                count += 1 
+                data_in_hist['81-90'] = count
+            if data >= 91 and data <= 100:
+                count = data_in_hist['91-100']
+                count += 1 
+                data_in_hist['91-100'] = count
+        print(data_in_hist)

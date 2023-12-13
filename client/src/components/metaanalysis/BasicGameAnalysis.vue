@@ -12,8 +12,8 @@
 		<UserData/>
 	</section>
 	<section class='range-graph-section'>
-			<BoxPlotGraph :items="allCriticData" />		
-			<UserBoxPlotGraph :items="allUserData" />
+		<BoxPlotGraph :items="allCriticData" />		
+		<UserBoxPlotGraph :items="allUserData" />
 	</section>
 	<section class='range-graph-section'>
 		<CriticScatterPlot :CriticData="allCriticData" />
