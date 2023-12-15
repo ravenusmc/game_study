@@ -120,40 +120,40 @@ class Support():
                 count = data_in_hist['1']
                 count += 1 
                 data_in_hist['1'] = count
-            if data >= 11 and data <= 20:
-                count = data_in_hist['11-20']
+            if data == 2:
+                count = data_in_hist['2']
                 count += 1 
-                data_in_hist['11-20'] = count
-            if data >= 21 and data <= 30:
-                count = data_in_hist['21-30']
+                data_in_hist['2'] = count
+            if data == 3:
+                count = data_in_hist['3']
                 count += 1 
-                data_in_hist['21-30'] = count
-            if data >= 31 and data <= 40:
-                count = data_in_hist['31-40']
+                data_in_hist['3'] = count
+            if data == 4:
+                count = data_in_hist['4']
                 count += 1 
-                data_in_hist['31-40'] = count
-            if data >= 41 and data <= 50:
-                count = data_in_hist['41-50']
+                data_in_hist['4'] = count
+            if data == 5:
+                count = data_in_hist['5']
                 count += 1 
-                data_in_hist['41-50'] = count
-            if data >=51 and data <= 60:
-                count = data_in_hist['51-60']
+                data_in_hist['5'] = count
+            if data == 6:
+                count = data_in_hist['6']
                 count += 1 
-                data_in_hist['51-60'] = count
-            if data >= 61 and data <= 70:
-                count = data_in_hist['61-70']
+                data_in_hist['6'] = count
+            if data == 7:
+                count = data_in_hist['7']
                 count += 1 
-                data_in_hist['61-70'] = count
-            if data >= 71 and data <= 80:
-                count = data_in_hist['71-80']
+                data_in_hist['7'] = count
+            if data == 8:
+                count = data_in_hist['8']
                 count += 1 
-                data_in_hist['71-80'] = count
-            if data >= 81 and data <= 90:
-                count = data_in_hist['81-90']
+                data_in_hist['8'] = count
+            if data == 9:
+                count = data_in_hist['9']
                 count += 1 
-                data_in_hist['81-90'] = count
-            if data >= 91 and data <= 100:
-                count = data_in_hist['91-100']
+                data_in_hist['9'] = count
+            if data == 10:
+                count = data_in_hist['10']
                 count += 1 
-                data_in_hist['91-100'] = count
+                data_in_hist['10'] = count
         return data_in_hist
