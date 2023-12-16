@@ -21,6 +21,7 @@ const data = {
 	critic_lower_quartile: 0,
 	critic_interquartile_range: 0,
 	critic_upper_quartile: 0,
+	critic_histogram: 0,
 	allUserData: [],
 	user_score_mean: 0,
 	user_score_median: 0, 
@@ -32,7 +33,7 @@ const data = {
 	user_lower_quartile: 0,
 	user_interquartile_range: 0,
 	user_upper_quartile: 0,
-
+	user_histogram: 0,
 };
 
 const getters = {
@@ -51,6 +52,7 @@ const getters = {
 	critic_lower_quartile: (state) => state.critic_lower_quartile,
 	critic_interquartile_range: (state) => state.critic_interquartile_range,
 	critic_upper_quartile: (state) => state.critic_upper_quartile,
+	critic_histogram: (state) => state.critic_histogram,
 	allUserData: (state) => state.allUserData,
 	user_score_mean: (state) => state.user_score_mean,
 	user_score_median: (state) => state.user_score_median, 
@@ -62,6 +64,7 @@ const getters = {
 	user_lower_quartile: (state) => state.user_lower_quartile,
 	user_interquartile_range: (state) => state.user_interquartile_range,
 	user_upper_quartile: (state) => state.user_upper_quartile,
+	user_histogram: (state) => state.user_histogram,
 };
 
 
@@ -86,6 +89,7 @@ const actions = {
 				commit('setCriticLowerQuartile', res.data['stat_dict']['lower_qualtile'])
 				commit('setCriticInterquartileRange', res.data['stat_dict']['interquartile_range'])
 				commit('setCriticUpperQuartile', res.data['stat_dict']['upper_qualtile'])
+				commit('setCriticHistogram', res.data['stat_dict']['critic_histogram'])
 				commit('setAllUserScore', res.data['user_stat_dict'])
 				commit('setUserScoreMean', res.data['user_stat_dict']['User_Score_Mean'])
 				commit('setUserScoreMedian', res.data['user_stat_dict']['median'])
@@ -97,6 +101,7 @@ const actions = {
 				commit('setUserLowerQuartile', res.data['user_stat_dict']['lower_qualtile'])
 				commit('setUserInterquartileRange', res.data['user_stat_dict']['interquartile_range'])
 				commit('setUserUpperQuartile', res.data['user_stat_dict']['upper_qualtile'])
+				commit('setUserHistogram', res.data['user_stat_dict']['user_histogram'])
 				commit('setNoData', false)
 			})
 			.catch((error) => {
@@ -168,6 +173,10 @@ const mutations = {
 		state.critic_upper_quartile = value;
 	},
 
+	setCriticHistogram(state, value) {
+		state.critic_histogram = value;
+	},
+
 	setAllUserScore(state, value) {
 		state.allUserData = value;
 	},
@@ -210,6 +219,10 @@ const mutations = {
 
 	setUserUpperQuartile(state, value) {
 		state.user_upper_quartile = value;
+	},
+
+	setUserHistogram(state, value) {
+		state.user_histogram = value;
 	},
 
 };

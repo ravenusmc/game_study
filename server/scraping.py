@@ -76,7 +76,8 @@ class Scraping():
         stat_dict['interquartile_range'] = iqr
         stat_dict['lower_qualtile'] = lower_qualtile
         stat_dict['upper_qualtile'] = upper_qualtile
-        support.create_histogram(only_critic_score_data)
+        data_in_hist = support.create_histogram(only_critic_score_data)
+        stat_dict['critic_histogram'] = data_in_hist
         return critic_score_data, critic_quote_data, stat_dict
     
     def get_user_scores_and_data(self):
@@ -121,4 +122,6 @@ class Scraping():
         user_stat_dict['interquartile_range'] = iqr
         user_stat_dict['lower_qualtile'] = lower_qualtile
         user_stat_dict['upper_qualtile'] = upper_qualtile
+        data_in_hist = support.create_histogram_user(only_user_score_data)
+        user_stat_dict['user_histogram'] = data_in_hist
         return user_score_data, user_quote_data, user_stat_dict
