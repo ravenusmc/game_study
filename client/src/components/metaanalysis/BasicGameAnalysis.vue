@@ -16,6 +16,9 @@
 		<UserBoxPlotGraph :items="allUserData" />
 	</section>
 	<section class='range-graph-section'>
+		<CriticHistogramGraph />
+	</section>
+	<section class='range-graph-section'>
 		<CriticScatterPlot :CriticData="allCriticData" />
 		<UserScatterPlot :UserData="allUserData" />
 	</section>
@@ -29,6 +32,7 @@ import CriticData from "@/components/metaanalysis/CriticData.vue";
 import UserData from "@/components/metaanalysis/UserData.vue";
 import BoxPlotGraph from "@/components/metaanalysis/BoxPlotGraph.vue";
 import UserBoxPlotGraph from "@/components/metaanalysis/UserBoxPlotGraph.vue";
+import CriticHistogramGraph from "@/components/metaanalysis/CriticHistogramGraph.vue";
 import CriticScatterPlot from "@/components/metaanalysis/CriticScatterPlot.vue";
 import UserScatterPlot from "@/components/metaanalysis/UserScatterPlot.vue";
 
@@ -39,6 +43,7 @@ export default {
 		UserData,
 		BoxPlotGraph,
 		UserBoxPlotGraph,
+		CriticHistogramGraph,
 		CriticScatterPlot,
 		UserScatterPlot,
 	},
