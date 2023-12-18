@@ -16,7 +16,7 @@
 		<UserBoxPlotGraph :items="allUserData" />
 	</section>
 	<section class='range-graph-section'>
-		<CriticHistogramGraph />
+		<CriticHistogramGraph :CriticData="allCriticData" />
 	</section>
 	<section class='range-graph-section'>
 		<CriticScatterPlot :CriticData="allCriticData" />

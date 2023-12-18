@@ -12,16 +12,6 @@ import * as d3 from "d3";
 import d3Tip from "d3-tip";
 
 export default {
-  data() {
-    return {
-      // score_data: this.items["Data"],
-      // median: this.items["median"],
-      // min: this.items["data_set_min"],
-      // max: this.items["Data_set_Max_Value"],
-      // q1: this.items["lower_qualtile"],
-      // q3: this.items["upper_qualtile"],
-    };
-  },
   props: {
     items: {
       type: Object,
@@ -30,7 +20,6 @@ export default {
   },
   mounted() {
     this.createChart();
-    // this.$watch("items", this.createChart, { deep: true });
   },
   watch: {
     items: {

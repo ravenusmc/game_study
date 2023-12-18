@@ -26,6 +26,9 @@ export default {
   },
   methods: {
     createScatterPlot() {
+      // remove the old chart
+      d3.select("#criticViz svg").remove();
+
       // set the dimensions and margins of the graph
       let margin = { top: 10, right: 30, bottom: 30, left: 60 };
       let width = 460 - margin.left - margin.right;
@@ -66,7 +69,6 @@ export default {
         })
         .attr("r", 1.5)
         .style("fill", "#69b3a2");
-
     },
   },
 };
