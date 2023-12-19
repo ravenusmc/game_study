@@ -1,18 +1,6 @@
 <template>
   <div>
-    <div id="critic-histogram-chart"></div>
-    <div
-      id="tooltip"
-      style="
-        opacity: 0;
-        position: absolute;
-        pointer-events: none;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 5px;
-      "
-    ></div>
+    <div id="user-histogram-chart"></div>
   </div>
 </template>
 
@@ -21,27 +9,27 @@ import * as d3 from "d3";
 import d3Tip from "d3-tip";
 
 export default {
-  name: "CriticHistogramGraph",
+  name: "UserHistogramGraph",
   props: {
-    CriticData: {
+    UserData: {
       type: Object,
       required: true,
     },
   },
   mounted() {
-    this.createHistogram();
+    this.createUserHistogram();
   },
   watch: {
-    CriticData: {
-      handler: "createHistogram",
+    UserData: {
+      handler: "createUserHistogram",
       deep: true,
     },
   },
   methods: {
-    createHistogram() {
-      // remove the old chart
-      d3.select("#critic-histogram-chart svg").remove();
-
+    createUserHistogram() {
+			// remove the old chart
+			d3.select("#user-histogram-chart svg").remove();
+			
       // set the dimensions and margins of the graph
       let margin = { top: 10, right: 30, bottom: 30, left: 40 };
       let width = 460 - margin.left - margin.right;
@@ -49,7 +37,7 @@ export default {
 
       // append the svg object to the body of the page
       let svg = d3
-        .select("#critic-histogram-chart")
+        .select("#user-histogram-chart")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -59,26 +47,26 @@ export default {
       // X axis: scale and draw:
       let x = d3
         .scaleLinear()
-        .domain([0, 100]) // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+        .domain([0, 10]) // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
         .range([0, width]);
       svg
         .append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
 
-      // console.log(this.CriticData["critic_histogram"]);
+			// console.log(this.CriticData["critic_histogram"]);
 
       // set the parameters for the histogram
       let histogram = d3
-        .histogram()
-        .value(function (d) {
-          return d;
-        })
+				.histogram()
+				.value(function(d) { 
+					return d; 
+				}) 
         .domain(x.domain())
-        .thresholds(x.ticks(10));
+        .thresholds(x.ticks(10)); 
 
       // And apply this function to data to get the bins
-      let bins = histogram(this.CriticData["Data"]);
+			let bins = histogram(this.UserData["Data"]);
 
       // Y axis: scale and draw:
       let y = d3.scaleLinear().range([height, 0]);
@@ -87,7 +75,7 @@ export default {
         d3.max(bins, function (d) {
           return d.length;
         }),
-      ]);
+      ]); 
       svg.append("g").call(d3.axisLeft(y));
 
       // append the bar rectangles to the svg element
@@ -106,28 +94,11 @@ export default {
         .attr("height", function (d) {
           return height - y(d.length);
         })
-        .style("fill", "#69b3a2")
-        .on("mouseover", function (event, d) {
-          d3.select("#tooltip")
-            .style("opacity", 0.9)
-            .html(
-              "Range: " + d.x0 + " - " + d.x1 + "<br/>Frequency: " + d.length
-            )
-            .style("left", event.pageX + "px")
-            .style("top", event.pageY - 28 + "px");
-        })
-        .on("mouseout", function () {
-          d3.select("#tooltip").transition().duration(500).style("opacity", 0);
-        });
+        .style("fill", "#69b3a2");
     },
   },
 };
 </script>
 
 <style scoped>
-#tooltip {
-  font-size: 12px;
-  color: #333;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
 </style>

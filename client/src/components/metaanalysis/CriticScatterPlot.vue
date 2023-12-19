@@ -67,7 +67,7 @@ export default {
         .attr("cy", function (d) {
           return y(d);
         })
-        .attr("r", 1.5)
+        .attr("r", 3)
         .style("fill", "#69b3a2");
     },
   },

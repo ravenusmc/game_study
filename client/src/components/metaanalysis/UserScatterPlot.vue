@@ -19,13 +19,17 @@ export default {
     this.createScatterPlot();
   },
   watch: {
-    CriticData: {
+    UserData: {
       handler: "createScatterPlot",
       deep: true,
     },
   },
   methods: {
     createScatterPlot() {
+
+      // remove the old chart
+      d3.select("#UserViz svg").remove();
+
       // set the dimensions and margins of the graph
       let margin = { top: 10, right: 30, bottom: 30, left: 60 };
       let width = 460 - margin.left - margin.right;
@@ -64,7 +68,7 @@ export default {
         .attr("cy", function (d) {
           return y(d);
         })
-        .attr("r", 1.5)
+        .attr("r", 3)
         .style("fill", "#69b3a2");
 
     },
