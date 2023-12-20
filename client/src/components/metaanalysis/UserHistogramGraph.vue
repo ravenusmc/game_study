@@ -27,9 +27,9 @@ export default {
   },
   methods: {
     createUserHistogram() {
-			// remove the old chart
-			d3.select("#user-histogram-chart svg").remove();
-			
+      // remove the old chart
+      d3.select("#user-histogram-chart svg").remove();
+
       // set the dimensions and margins of the graph
       let margin = { top: 10, right: 30, bottom: 30, left: 40 };
       let width = 460 - margin.left - margin.right;
@@ -54,19 +54,27 @@ export default {
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
 
-			// console.log(this.CriticData["critic_histogram"]);
+      // Add X axis label
+      svg
+        .append("text")
+        .attr(
+          "transform",
+          "translate(" + width / 2 + " ," + (height + margin.top + 20) + ")"
+        )
+        .style("text-anchor", "middle")
+        .text("Range");
 
       // set the parameters for the histogram
       let histogram = d3
-				.histogram()
-				.value(function(d) { 
-					return d; 
-				}) 
+        .histogram()
+        .value(function (d) {
+          return d;
+        })
         .domain(x.domain())
-        .thresholds(x.ticks(10)); 
+        .thresholds(x.ticks(10));
 
       // And apply this function to data to get the bins
-			let bins = histogram(this.UserData["Data"]);
+      let bins = histogram(this.UserData["Data"]);
 
       // Y axis: scale and draw:
       let y = d3.scaleLinear().range([height, 0]);
@@ -75,8 +83,18 @@ export default {
         d3.max(bins, function (d) {
           return d.length;
         }),
-      ]); 
+      ]);
       svg.append("g").call(d3.axisLeft(y));
+
+      // Add Y axis label
+      svg
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - height / 2)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Frequency");
 
       // append the bar rectangles to the svg element
       svg
@@ -94,7 +112,19 @@ export default {
         .attr("height", function (d) {
           return height - y(d.length);
         })
-        .style("fill", "#69b3a2");
+        .style("fill", "#69b3a2")
+        .on("mouseover", function (event, d) {
+          d3.select("#tooltip")
+            .style("opacity", 0.9)
+            .html(
+              "Range: " + d.x0 + " - " + d.x1 + "<br/>Frequency: " + d.length
+            )
+            .style("left", event.pageX + "px")
+            .style("top", event.pageY - 28 + "px");
+        })
+        .on("mouseout", function () {
+          d3.select("#tooltip").transition().duration(500).style("opacity", 0);
+        });
     },
   },
 };

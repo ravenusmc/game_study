@@ -66,7 +66,15 @@ export default {
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
 
-      // console.log(this.CriticData["critic_histogram"]);
+      // Add X axis label
+      svg
+        .append("text")
+        .attr(
+          "transform",
+          "translate(" + width / 2 + " ," + (height + margin.top + 20) + ")"
+        )
+        .style("text-anchor", "middle")
+        .text("Range");
 
       // set the parameters for the histogram
       let histogram = d3
@@ -89,6 +97,16 @@ export default {
         }),
       ]);
       svg.append("g").call(d3.axisLeft(y));
+
+      // Add Y axis label
+      svg
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - height / 2)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Frequency");
 
       // append the bar rectangles to the svg element
       svg

@@ -2,7 +2,7 @@
   <div>
     <!-- {{ items }} -->
     <!-- <div id="my_dataviz"></div> -->
-    <div id='UserDataViz'></div>
+    <div id="UserDataViz"></div>
     <!-- <button @click="updateData()">Update Data</button> -->
   </div>
 </template>
@@ -23,18 +23,14 @@ export default {
   },
   watch: {
     items: {
-      handler: 'createChart',
+      handler: "createChart",
       deep: true,
     },
   },
   methods: {
-    // updateData() {
-    //   this.score_data = this.items["Data"];
-    // },
     createChart() {
-
       // remove the old chart
-      d3.select('#UserDataViz svg').remove();
+      d3.select("#UserDataViz svg").remove();
 
       let margin = { top: 10, right: 30, bottom: 30, left: 40 };
       let width = 400 - margin.left - margin.right;
@@ -50,9 +46,8 @@ export default {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       // Compute summary statistics used for the box:
-      // let q1 = this.q1;
-      // let q3 = this.q3;
-      let interQuantileRange = this.items["upper_qualtile"] - this.items["lower_qualtile"];
+      let interQuantileRange =
+        this.items["upper_qualtile"] - this.items["lower_qualtile"];
 
       let y = "";
       // Set the Y scale
@@ -82,7 +77,10 @@ export default {
         .append("rect")
         .attr("x", center - boxWidth / 2)
         .attr("y", y(this.items["upper_qualtile"]))
-        .attr("height", y(this.items["lower_qualtile"]) - y(this.items["upper_qualtile"]))
+        .attr(
+          "height",
+          y(this.items["lower_qualtile"]) - y(this.items["upper_qualtile"])
+        )
         .attr("width", boxWidth)
         .attr("stroke", "black")
         .style("fill", "#69b3a2");
@@ -90,7 +88,11 @@ export default {
       // show median, min and max horizontal lines
       svg
         .selectAll("toto")
-        .data([this.items["data_set_min"], this.items["median"], this.items["Data_set_Max_Value"]])
+        .data([
+          this.items["data_set_min"],
+          this.items["median"],
+          this.items["Data_set_Max_Value"],
+        ])
         .enter()
         .append("line")
         .attr("x1", center - boxWidth / 2)
@@ -103,23 +105,18 @@ export default {
         })
         .attr("stroke", "black");
 
-      // Add x-axis label
+      // Add y-axis label
       svg
         .append("text")
-        .attr("x", width / 2)
-        .attr("y", 125) // Adjust the position as needed
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - height / 2)
+        .attr("dy", "1em")
         .style("text-anchor", "middle")
-        .text("X-Axis Label")
+        .text("Score")
         .style("font-size", "14px")
-        .style("font-color", "black");
-
+        .style("fill", "black");
     },
-    // updateData() {
-    //   // remove the old chart
-    //   d3.select('#my_dataviz svg').remove();
-    //   // // create the new chart with the updated data
-    //   // this.createChart();
-    // },
   },
 };
 </script>
