@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     createScatterPlot() {
-
       // remove the old chart
       d3.select("#UserViz svg").remove();
 
@@ -52,7 +51,7 @@ export default {
         .call(d3.axisBottom(x));
 
       // Add Y axis
-      let y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
+      let y = d3.scaleLinear().domain([0, 10]).range([height, 0]);
       svg.append("g").call(d3.axisLeft(y));
 
       // Add dots
@@ -69,8 +68,29 @@ export default {
           return y(d);
         })
         .attr("r", 3)
-        .style("fill", "#69b3a2");
+        .style("fill", "#69b3a2")
+        .on("mouseover", function (event, d) {
+          d3.select("#tooltip")
+            .style("opacity", 0.9)
+            .html("Score: " + d)
+            .style("left", event.pageX + "px")
+            .style("top", event.pageY - 28 + "px");
+        })
+        .on("mouseout", function () {
+          d3.select("#tooltip").transition().duration(500).style("opacity", 0);
+        });
 
+      // Add Y axis label
+      svg
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - height / 2)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Score")
+        .style("font-size", "14px")
+        .style("fill", "black");
     },
   },
 };
