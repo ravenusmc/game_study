@@ -11,6 +11,7 @@
 		<CriticData/>
 		<UserData/>
 	</section>
+	<AnalysisForm />
 	<section class='range-graph-section'>
 		<BoxPlotGraph :items="allCriticData" />		
 		<UserBoxPlotGraph :items="allUserData" />
@@ -31,6 +32,7 @@ import { mapGetters } from "vuex";
 
 import CriticData from "@/components/metaanalysis/CriticData.vue";
 import UserData from "@/components/metaanalysis/UserData.vue";
+import AnalysisForm from "@/components/metaanalysis/AnalysisForm.vue";
 import BoxPlotGraph from "@/components/metaanalysis/BoxPlotGraph.vue";
 import UserBoxPlotGraph from "@/components/metaanalysis/UserBoxPlotGraph.vue";
 import CriticHistogramGraph from "@/components/metaanalysis/CriticHistogramGraph.vue";
@@ -43,6 +45,7 @@ export default {
 	components: {
 		CriticData,
 		UserData,
+		AnalysisForm,
 		BoxPlotGraph,
 		UserBoxPlotGraph,
 		CriticHistogramGraph,
