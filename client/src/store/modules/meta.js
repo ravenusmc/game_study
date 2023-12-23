@@ -10,6 +10,9 @@ const data = {
 	GameTitle: '',
 	criticScore: 0,
 	reviewScore: 0,
+	showBoxPlotGraph: true, 
+	showHistogram: false,
+	showScatterPlotGraph: false,
 	allCriticData: [],
 	critic_score_mean: 0,
 	critic_score_median: 0, 
@@ -38,6 +41,9 @@ const data = {
 
 const getters = {
 	NoData: (state) => state.NoData,
+	showBoxPlotGraph: (state) => state.showBoxPlotGraph,
+	showHistogram: (state) => state.showHistogram,
+	showScatterPlotGraph: (state) => state.showScatterPlotGraph,
 	GameTitle: (state) => state.GameTitle,
 	criticScore: (state) => state.criticScore,
 	reviewScore: (state) => state.reviewScore,
@@ -115,6 +121,18 @@ const mutations = {
 
 	setNoData(state, value) {
 		state.NoData = value;
+	},
+
+	setShowBoxPlotGraph(state, value) {
+		state.showBoxPlotGraph = value;
+	},
+
+	setShowHistogram(state, value) {
+		state.showHistogram = value;
+	},
+
+	setShowScatterPlotGraph(state, value) {
+		state.showScatterPlotGraph = value;
 	},
 
 	setGameTitle(state, value) {

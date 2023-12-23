@@ -12,15 +12,15 @@
 		<UserData/>
 	</section>
 	<AnalysisForm />
-	<section class='range-graph-section'>
+	<section v-if="showBoxPlotGraph" class='range-graph-section'>
 		<BoxPlotGraph :items="allCriticData" />		
 		<UserBoxPlotGraph :items="allUserData" />
 	</section>
-	<section class='range-graph-section'>
+	<section  v-if="showHistogram" class='range-graph-section'>
 		<CriticHistogramGraph :CriticData="allCriticData" />
 		<UserHistogramGraph :UserData="allUserData" />
 	</section>
-	<section class='range-graph-section'>
+	<section v-if="showScatterPlotGraph" class='range-graph-section'>
 		<CriticScatterPlot :CriticData="allCriticData" />
 		<UserScatterPlot :UserData="allUserData" />
 	</section>
@@ -60,7 +60,10 @@ export default {
   },
 	computed: {
 		...mapGetters("meta", 
-		["GameTitle", 
+		["showBoxPlotGraph",
+		"showHistogram",
+		"showScatterPlotGraph",
+		"GameTitle", 
 		"allCriticData",
 		"criticScore",
 		"reviewScore",
