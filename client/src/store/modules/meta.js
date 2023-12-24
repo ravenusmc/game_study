@@ -115,6 +115,10 @@ const actions = {
 			});
 	},
 
+	changeGraphs: ({ commit }, { payload }) => {
+		console.log('ACTION!!')
+	},
+
 };
 
 const mutations = {

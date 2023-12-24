@@ -1,12 +1,12 @@
 <template>
   <div>
-    <form class="contact-form" @change="changeParty">
+    <form class="contact-form" @change="changeSelectedGraph">
       <div class="form-group">
-        <label for="party">Select Party:</label>
-        <select v-model="selectedParty">
+        <label for="party">Select Graph:</label>
+        <select v-model="selectedGraph">
           <option disabled value="">Please select one</option>
-          <option v-for="party in parties" :key="party" :value="party">
-            {{ party }}
+          <option v-for="graph in Graphs" :key="graph" :value="graph">
+            {{ graph }}
           </option>
         </select>
       </div>
@@ -21,17 +21,19 @@ export default {
   name: "AnalysisForm",
   data() {
     return {
-      parties: ["Original Graphs","Democratic", "Republican"],
-      selectedParty: "Original Graphs",
+      Graphs: ["Box Plot","Histogram", "Scatter Plot"],
+      selectedGraph: "Box Plot",
     };
   },
   methods: {
-    ...mapActions("data", ["changeDynamicGraphs"]),
-    changeParty() {
+    ...mapActions("meta", ["changeGraphs"]),
+    changeSelectedGraph() {
+      event.preventDefault();
+      console.log('here')
       const payload = {
-        party: this.selectedParty,
+        graph: this.selectedGraph,
       };
-      this.changeDynamicGraphs({ payload });
+      this.changeGraphs({ payload });
     },
   },
 };
