@@ -116,7 +116,10 @@ const actions = {
 	},
 
 	changeGraphs: ({ commit }, { payload }) => {
-		console.log('ACTION!!')
+		const graphType = payload['graph'];
+		commit('setShowBoxPlotGraph', graphType === "Box Plot");
+		commit('setShowHistogram', graphType === "Histogram");
+		commit('setShowScatterPlotGraph', graphType !== "Box Plot" && graphType !== "Histogram");
 	},
 
 };

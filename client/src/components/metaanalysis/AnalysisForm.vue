@@ -29,7 +29,6 @@ export default {
     ...mapActions("meta", ["changeGraphs"]),
     changeSelectedGraph() {
       event.preventDefault();
-      console.log('here')
       const payload = {
         graph: this.selectedGraph,
       };
