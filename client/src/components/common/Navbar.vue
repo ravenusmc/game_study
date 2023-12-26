@@ -28,6 +28,13 @@
               </a>
             </li>
           </span>
+          <span>
+            <li class="nav-item">
+              <a class="nav-link">
+                <router-link to="/gamedata">Game Data Analysis</router-link>
+              </a>
+            </li>
+          </span>
           <li class="nav-item">
             <a class="nav-link">
               <router-link to="/about">About</router-link>
