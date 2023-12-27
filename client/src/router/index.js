@@ -24,7 +24,7 @@ const routes = [
     path: '/gamedata',
     name: 'GameData',
     component: () => import(/* webpackChunkName: "about" */ '../views/GameData.vue')
-  }
+  },
 ]
 
 const router = new VueRouter({

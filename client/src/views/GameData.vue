@@ -1,6 +1,12 @@
 <template>
   <div>
-		<h1>Game Data</h1>
+		<div class='title-div'>
+			<h3 class='center'>Game Data Analysis</h3>
+		</div>
+
+		What graphs to make?
+
+
 	</div>
 </template>
 
@@ -11,4 +17,8 @@ export default {
 </script>
 
 <style scoped>
+
+.title-div {
+	margin-top: 50px;
+}
 </style>
