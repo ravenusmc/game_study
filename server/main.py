@@ -5,6 +5,7 @@ from flask_cors import CORS
 from scraping import *
 from support import *
 from sentiment import *
+from data import *
 
 # instantiate the app
 app = Flask(__name__)
