@@ -4,6 +4,7 @@ import pandas as pd
 
 class EXAMINECSV():
 
+    # Setting up the data 
     def __init__(self):
         self.data = pd.read_csv('./data/Cleaned_data.csv')
     
