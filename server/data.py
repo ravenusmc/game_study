@@ -9,7 +9,10 @@ class EXAMINECSV():
         self.data = pd.read_csv('./data/Cleaned_data.csv')
     
     def get_best_single_game_by_year(self, selected_year):
-        pass
+        df = self.data[self.data['Year_of_Release'] == selected_year]
+        highest_score_index = df['Critic_Score'].idxmax()
+        game_with_highest_score = df.loc[highest_score_index, 'Name']
+        critic_score_of_game = df.loc[highest_score_index, 'Critic_Score']
     
     def get_top_five_games_by_year(self):
         pass
@@ -19,4 +22,4 @@ class EXAMINECSV():
 
 
 test = EXAMINECSV()
-test.test()
+test.get_best_single_game_by_year(2008)
