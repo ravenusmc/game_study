@@ -5,7 +5,6 @@
 		</div>
 
 		What graphs to make?
-		-allow user to choose year and see best game, in a genre in that year 
 		-Graph of average genre ratings per year - avg RPG rating overtime 
 			-User should choose genere
 		-Sales, by publisher, by year 
