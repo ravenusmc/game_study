@@ -40,8 +40,11 @@ class EXAMINECSV():
         return games_and_scores
 
     def get_average_game_ratings_by_genre_and_year(self, genre): 
-        pass
+        selected_genre_df = self.data[self.data['Genre'] == genre]
+        average_ratings = selected_genre_df.groupby(['Year_of_Release', 'Genre']).agg({'Critic_Score': 'mean'}).reset_index()
+        print(average_ratings)
+        
 
 
 test = EXAMINECSV()
-test.get_top_five_games_by_year(2008)
+test.get_average_game_ratings_by_genre_and_year('Role-Playing')
