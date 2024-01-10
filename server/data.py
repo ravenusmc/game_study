@@ -42,7 +42,21 @@ class EXAMINECSV():
     def get_average_game_ratings_by_genre_and_year(self, genre): 
         selected_genre_df = self.data[self.data['Genre'] == genre]
         average_ratings = selected_genre_df.groupby(['Year_of_Release', 'Genre']).agg({'Critic_Score': 'mean'}).reset_index()
-        print(average_ratings)
+        year_and_critic_ratings = []
+        columns = ['Year', 'Critic Rating']
+        year_and_critic_ratings.append(columns)
+        count = 0 
+        while count < len(average_ratings): 
+            rows = []
+            ratings = average_ratings.iloc[count]
+            year = ratings.iloc[0]
+            # Need to get to 2 decimils
+            rating = ratings.iloc[2]
+            rows.append(year)
+            rows.append(rating)
+            year_and_critic_ratings.append(rows)
+            count += 1
+        print(year_and_critic_ratings)
         
 
 
