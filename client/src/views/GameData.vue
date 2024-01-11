@@ -5,8 +5,6 @@
 		</div>
 
 		What graphs to make?
-		-Graph of average genre ratings per year - avg RPG rating overtime 
-			-User should choose genere
 		-Sales, by publisher, by year 
 			-Need to see top 5 publishers probably 
 			-user clicks button to change to next year 

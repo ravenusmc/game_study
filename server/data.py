@@ -56,9 +56,15 @@ class EXAMINECSV():
             rows.append(rating)
             year_and_critic_ratings.append(rows)
             count += 1
-        print(year_and_critic_ratings)
-        
+        return year_and_critic_ratings
+    
+    def Top_sales_by_publisher_by_selected_year(self, year):
+        selected_year_df = self.data[self.data['Year_of_Release'] == year]
+        top_publishers = selected_year_df.groupby(['Publisher']).agg({'Global_Sales': 'sum'}).reset_index()
+        top_publishers_sorted = top_publishers.sort_values(by='Global_Sales', ascending=False).head(5)
+        return top_publishers_sorted
 
 
+    
 test = EXAMINECSV()
-test.get_average_game_ratings_by_genre_and_year('Role-Playing')
+test.Top_sales_by_publisher_by_selected_year(2008)
