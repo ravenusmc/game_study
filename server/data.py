@@ -57,7 +57,7 @@ class EXAMINECSV():
             year_and_critic_ratings.append(rows)
             count += 1
         return year_and_critic_ratings
-    
+
     def Top_sales_by_publisher_by_selected_year(self, year):
         selected_year_df = self.data[self.data['Year_of_Release'] == year]
         top_publishers = selected_year_df.groupby(['Publisher']).agg({'Global_Sales': 'sum'}).reset_index()
