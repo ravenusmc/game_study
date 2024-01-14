@@ -2,7 +2,7 @@
   <div>
     <form class="contact-form" @change="changeSelectedGraph">
       <div class="form-group">
-        <label for="party">Select Graph:</label>
+        <label for="party">Select Genre:</label>
         <select v-model="selectedGraph">
           <option disabled value="">Please select one</option>
           <option v-for="graph in Graphs" :key="graph" :value="graph">
@@ -22,8 +22,8 @@ export default {
   name: "AnalysisForm",
   data() {
     return {
-      Graphs: ["Box Plot","Histogram", "Scatter Plot"],
-      selectedGraph: "Box Plot",
+      Genres: [],
+      selectedGenre: "Box Plot",
     };
   },
   methods: {
