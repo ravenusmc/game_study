@@ -63,8 +63,15 @@ class EXAMINECSV():
         top_publishers = selected_year_df.groupby(['Publisher']).agg({'Global_Sales': 'sum'}).reset_index()
         top_publishers_sorted = top_publishers.sort_values(by='Global_Sales', ascending=False).head(5)
         return top_publishers_sorted
-
+    
+    def get_distinct_years(self):
+        unique_values = sorted(self.data['Year_of_Release'].unique())
+        print(unique_values)
+    
+    def get_distinct_genres(self):
+        unique_genres = self.data['Genre'].unique()
+        print(unique_genres)
 
     
 test = EXAMINECSV()
-test.Top_sales_by_publisher_by_selected_year(2008)
+test.get_distinct_genres()
