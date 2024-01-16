@@ -44,5 +44,15 @@ def fetchGameReviews():
         data_container['user_sentiment_average'] = user_sentiment_average
     return jsonify(data_container)
 
+@app.route('/buildCSVCharts', methods=['GET', 'POST'])
+def buildCSVCharts():
+    if request.method == 'POST':
+        data = EXAMINECSV()
+        post_data = request.get_json()
+        year = post_data['year']
+        genre = post_data['genre']
+
+    return jsonify('5')
+
 if __name__ == '__main__':
     app.run()

@@ -20,7 +20,7 @@
         </select>
       </div>
       <div class="form-group">
-        <button @click="submitSelectedOptions">Submit</button>
+        <button type="button" class="btn btn-primary" @click="submitSelectedOptions">Submit</button>
       </div>
     </form>
   </div>
@@ -79,14 +79,14 @@ export default {
     };
   },
   methods: {
-    ...mapActions("meta", ["changeGraphs"]),
+    ...mapActions("csv", ["submitSelectionToServer"]),
     submitSelectedOptions() {
       event.preventDefault();
       const payload = {
         year: this.selectedYear,
         genre: this.selectedGenre,
       };
-      // this.changeGraphs({ payload });
+      this.submitSelectionToServer({ payload });
     },
   },
 };

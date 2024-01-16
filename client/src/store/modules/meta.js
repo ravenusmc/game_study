@@ -80,7 +80,6 @@ const actions = {
 		const path = 'http://localhost:5000/getGameReviews';
 		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data)
 				commit('setGameTitle', res.data['game_title']);
 				commit('setCriticScore', res.data['scores'][0])
 				commit('setReviewScore', res.data['scores'][1])
