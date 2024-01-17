@@ -20,6 +20,7 @@ const actions = {
 		const path = 'http://localhost:5000/buildCSVCharts';
 		axios.post(path, payload)
 			.then((res) => {
+				console.log(res.data)
 				commit('setNoData', false)
 			})
 			.catch((error) => {

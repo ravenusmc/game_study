@@ -47,12 +47,16 @@ def fetchGameReviews():
 @app.route('/buildCSVCharts', methods=['GET', 'POST'])
 def buildCSVCharts():
     if request.method == 'POST':
+        requested_data_container = {}
         data = EXAMINECSV()
         post_data = request.get_json()
         year = post_data['year']
         genre = post_data['genre']
-
-    return jsonify('5')
+        game_with_highest_score, critic_score_of_game = data.get_best_single_game_by_year(year)
+        requested_data_container['best_single_game'] = game_with_highest_score
+        requested_data_container['best_game_score'] = critic_score_of_game
+        print(requested_data_container)
+    return jsonify(requested_data_container)
 
 if __name__ == '__main__':
     app.run()
