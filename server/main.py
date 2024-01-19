@@ -56,6 +56,7 @@ def buildCSVCharts():
         requested_data_container['best_single_game'] = game_with_highest_score
         requested_data_container['best_game_score'] = critic_score_of_game
         best_game_by_genre_and_year = data.get_best_single_game_by_year_and_genre(year, genre)
+        requested_data_container['best_game_by_genre_and_year'] = best_game_by_genre_and_year
     return jsonify(requested_data_container)
 
 if __name__ == '__main__':

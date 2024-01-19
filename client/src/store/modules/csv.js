@@ -6,11 +6,11 @@ import store from '@/store/index';
 Vue.use(Vuex);
 
 const data = {
-	NoData: true,
+	best_single_game_by_year: "",
 };
 
 const getters = {
-	NoData: (state) => state.NoData,
+	best_single_game_by_year: (state) => state.best_single_game_by_year,
 };
 
 
