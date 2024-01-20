@@ -6,11 +6,16 @@ import store from '@/store/index';
 Vue.use(Vuex);
 
 const data = {
-	best_single_game_by_year: "",
+	bestSingleGameByYear: "",
+	bestSingleGameByYearScore: 0,
+	bestGameByGenreAndYear: [],
+
 };
 
 const getters = {
-	best_single_game_by_year: (state) => state.best_single_game_by_year,
+	bestSingleGameByYear: (state) => state.best_single_game_by_year,
+	bestSingleGameByYearScore: (state) => state.bestSingleGameByYearScore,
+	bestGameByGenreAndYear: (state) => state.bestGameByGenreAndYear,
 };
 
 
@@ -21,7 +26,9 @@ const actions = {
 		axios.post(path, payload)
 			.then((res) => {
 				console.log(res.data)
-				commit('setNoData', false)
+				commit('setBestSingleGameByYear', res.data['best_single_game'])
+				commit('setBestSingleGameByYearScore', res.data['best_game_score'])
+				commit('best_game_by_genre_and_year', res.data['best_game_by_genre_and_year'])
 			})
 			.catch((error) => {
 				console.log(error);
@@ -33,8 +40,16 @@ const actions = {
 
 const mutations = {
 
-	setNoData(state, value) {
-		state.NoData = value;
+	setBestSingleGameByYear(state, value) {
+		state.bestSingleGameByYear = value;
+	},
+
+	setBestSingleGameByYearScore(state, value) {
+		state.bestSingleGameByYearScore = value
+	},
+
+	setBestGameByGenreAndYear(state, value) {
+		state.bestGameByGenreAndYear = value
 	},
 
 };
