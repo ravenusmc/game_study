@@ -28,7 +28,7 @@ const actions = {
 				console.log(res.data)
 				commit('setBestSingleGameByYear', res.data['best_single_game'])
 				commit('setBestSingleGameByYearScore', res.data['best_game_score'])
-				commit('best_game_by_genre_and_year', res.data['best_game_by_genre_and_year'])
+				commit('setBestGameByGenreAndYear', res.data['best_game_by_genre_and_year'])
 			})
 			.catch((error) => {
 				console.log(error);
