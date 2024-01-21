@@ -54,7 +54,6 @@ class EXAMINECSV():
             ratings = average_ratings.iloc[count]
             year = int(ratings.iloc[0])
             rating = int(ratings.iloc[2])
-            print(rating)
             rows.append(year)
             rows.append(rating)
             year_and_critic_ratings.append(rows)
@@ -62,10 +61,26 @@ class EXAMINECSV():
         return year_and_critic_ratings
 
     def Top_sales_by_publisher_by_selected_year(self, year):
+        top_publishers_by_selected_year = []
+        columns = ['Publisher', 'Sales']
+        top_publishers_by_selected_year.append(columns)
         selected_year_df = self.data[self.data['Year_of_Release'] == year]
         top_publishers = selected_year_df.groupby(['Publisher']).agg({'Global_Sales': 'sum'}).reset_index()
         top_publishers_sorted = top_publishers.sort_values(by='Global_Sales', ascending=False).head(5)
-        return top_publishers_sorted
+        count = 0
+        while count < 5:
+            rows = []
+            sales = top_publishers_sorted.iloc[count]
+            publisher = sales['Publisher']
+            total_sales = int(sales['Global_Sales'])
+            rows.append(publisher)
+            rows.append(total_sales)
+            top_publishers_by_selected_year.append(rows)
+            count += 1
+        return top_publishers_by_selected_year
+    
+    def Top_sales_by_publisher_by_selected_year_genre(self, year, genre):
+        pass
     
     def get_distinct_years(self):
         unique_values = sorted(self.data['Year_of_Release'].unique())
