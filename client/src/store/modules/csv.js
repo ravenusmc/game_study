@@ -9,13 +9,18 @@ const data = {
 	bestSingleGameByYear: "",
 	bestSingleGameByYearScore: 0,
 	bestGameByGenreAndYear: [],
-
+	topFiveGamesAndScoresSelectedYear: [],
+	topPublishersBySelectedYear: [],
+	yearAndCriticRatings: []
 };
 
 const getters = {
 	bestSingleGameByYear: (state) => state.best_single_game_by_year,
 	bestSingleGameByYearScore: (state) => state.bestSingleGameByYearScore,
 	bestGameByGenreAndYear: (state) => state.bestGameByGenreAndYear,
+	topFiveGamesAndScoresSelectedYear: (state) => state.topFiveGamesAndScoresSelectedYear,
+	topPublishersBySelectedYear: (state) => state.topPublishersBySelectedYear,
+	yearAndCriticRatings: (state) => state.yearAndCriticRatings,
 };
 
 
@@ -34,7 +39,6 @@ const actions = {
 				console.log(error);
 			});
 	},
-
 
 };
 
