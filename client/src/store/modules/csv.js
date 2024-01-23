@@ -15,7 +15,7 @@ const data = {
 };
 
 const getters = {
-	bestSingleGameByYear: (state) => state.best_single_game_by_year,
+	bestSingleGameByYear: (state) => state.bestSingleGameByYear,
 	bestSingleGameByYearScore: (state) => state.bestSingleGameByYearScore,
 	bestGameByGenreAndYear: (state) => state.bestGameByGenreAndYear,
 	topFiveGamesAndScoresSelectedYear: (state) => state.topFiveGamesAndScoresSelectedYear,
@@ -34,6 +34,9 @@ const actions = {
 				commit('setBestSingleGameByYear', res.data['best_single_game'])
 				commit('setBestSingleGameByYearScore', res.data['best_game_score'])
 				commit('setBestGameByGenreAndYear', res.data['best_game_by_genre_and_year'])
+				commit('setTopFiveGamesAndScoresSelectedYear', res.data['top_five_games_and_scores_selected_year'])
+				commit('setTopPublishersBySelectedYear', res.data['top_publishers_by_selected_year'])
+				commit('setYearAndCriticRatings', res.data['year_and_critic_ratings'])
 			})
 			.catch((error) => {
 				console.log(error);
@@ -54,6 +57,18 @@ const mutations = {
 
 	setBestGameByGenreAndYear(state, value) {
 		state.bestGameByGenreAndYear = value
+	},
+
+	setTopFiveGamesAndScoresSelectedYear(state, value) {
+		state.topFiveGamesAndScoresSelectedYear = value
+	},
+
+	setTopPublishersBySelectedYear(state, value) {
+		state.topPublishersBySelectedYear = value
+	},
+
+	setYearAndCriticRatings(state, value) {
+		state.yearAndCriticRatings = value
 	},
 
 };

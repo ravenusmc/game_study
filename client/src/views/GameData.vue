@@ -15,10 +15,13 @@
 			-DONE  
 		-Graph of user scores versus critic score for best game 
 			-Should I do this? -->
+      <p>test</p>
+    <p>{{ bestSingleGameByYear }}</p>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import GameDataForm from "@/components/gamedata/GameDataForm.vue";
 
 export default {
@@ -26,6 +29,10 @@ export default {
   components: {
     GameDataForm,
   },
+  	computed: {
+		...mapGetters("csv", 
+		["bestSingleGameByYear",]),
+	},
 };
 </script>
 
