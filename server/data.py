@@ -91,5 +91,13 @@ class EXAMINECSV():
         print(unique_genres)
 
     
-test = EXAMINECSV()
-test.get_distinct_genres()
+# test = EXAMINECSV()
+# test.get_distinct_genres()
+
+    # <!-- What graphs to make?
+	# 	-Sales, by publisher, by year 
+	# 		-Need to see top 5 publishers probably 
+	# 		-user clicks button to change to next year
+	# 		-DONE  
+	# 	-Graph of user scores versus critic score for best game 
+	# 		-Should I do this? -->
