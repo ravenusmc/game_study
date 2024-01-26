@@ -18,22 +18,18 @@
 import { mapGetters } from "vuex";
 import GameDataForm from "@/components/gamedata/GameDataForm.vue";
 import NoData from "@/components/gamedata/NoData.vue";
+import Results from "@/components/gamedata/Results.vue";
 
 export default {
   name: "GameData",
   components: {
 		GameDataForm,
 		NoData,
+		Results,
   },
-  	computed: {
+  computed: {
 		...mapGetters("csv", 
-		["dataReceived",
-		"bestSingleGameByYear",
-		"bestSingleGameByYearScore",
-		"bestGameByGenreAndYear",
-		"topFiveGamesAndScoresSelectedYear",
-		"topPublishersBySelectedYear",
-		"yearAndCriticRatings"])
+		["dataReceived"])
 	},
 };
 </script>
