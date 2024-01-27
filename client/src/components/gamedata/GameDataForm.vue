@@ -1,7 +1,7 @@
 <template>
   <div>
     <form class="contact-form">
-      <div class="form-group">
+      <div class='selector-fix'>
         <label for="party">Select Year:</label>
         <select v-model="selectedYear">
           <option disabled value="">Please select one</option>
@@ -10,7 +10,7 @@
           </option>
         </select>
       </div>
-      <div class="form-group">
+      <div class='selector-fix'>
         <label for="genres">Select Genre:</label>
         <select v-model="selectedGenre">
           <option disabled value="">Please select one</option>
@@ -93,9 +93,15 @@ export default {
 </script>
 
 <style scoped>
-.form-group {
+
+.contact-form {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
+
+.selector-fix {
+  margin-right: 10px;
+}
+
 </style>
