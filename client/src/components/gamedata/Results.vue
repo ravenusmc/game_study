@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{bestSingleGameByYear}}</h1>
+    <p>Here are the results for {{ selectedYear }} and the genre that was selected was: {{ selectedGenre}}</p>
   </div>
 </template>
 
@@ -11,6 +11,8 @@ export default {
   name: "Results",
   computed: {
     ...mapGetters("csv", [
+      "selectedYear",
+      "selectedGenre",
       "bestSingleGameByYear",
       "bestSingleGameByYearScore",
       "bestGameByGenreAndYear",

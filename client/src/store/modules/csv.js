@@ -7,6 +7,8 @@ Vue.use(Vuex);
 
 const data = {
 	dataReceived: false, 
+	selectedYear: 0,
+	selectedGenre: "",
 	bestSingleGameByYear: "",
 	bestSingleGameByYearScore: 0,
 	bestGameByGenreAndYear: [],
@@ -17,6 +19,8 @@ const data = {
 
 const getters = {
 	dataReceived: (state) => state.dataReceived,
+	selectedYear: (state) => state.selectedYear,
+	selectedGenre: (state) => state.selectedGenre,
 	bestSingleGameByYear: (state) => state.bestSingleGameByYear,
 	bestSingleGameByYearScore: (state) => state.bestSingleGameByYearScore,
 	bestGameByGenreAndYear: (state) => state.bestGameByGenreAndYear,
@@ -29,6 +33,8 @@ const getters = {
 const actions = {
 
 	submitSelectionToServer: ({ commit }, { payload }) => {
+		commit('setSelectedYear', payload['year'])
+		commit('setSelectedGenre', payload['genre'])
 		const path = 'http://localhost:5000/buildCSVCharts';
 		axios.post(path, payload)
 			.then((res) => {
@@ -52,6 +58,14 @@ const mutations = {
 
 	setDataReceived(state, value) {
 		state.dataReceived = value; 
+	},
+
+	setSelectedYear(state, value) {
+		state.selectedYear = value
+	},
+
+	setSelectedGenre(state, value) {
+		state.selectedGenre = value
 	},
 
 	setBestSingleGameByYear(state, value) {
