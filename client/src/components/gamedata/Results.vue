@@ -62,7 +62,7 @@ export default {
       chartOptionsOne: {
         title: "Top 5 Games for Selected Year",
         legend: { position: "top" },
-        colors: ["#BF0D3E"],
+        colors: ["#069AEA"],
         height: 500,
         animation: {
           duration: 1000,
@@ -77,7 +77,7 @@ export default {
       chartOptionsTwo: {
         title: "Top Publishers in selected year",
         legend: { position: "top" },
-        colors: ["#BF0D3E"],
+        colors: ["#069AEA"],
         height: 500,
         vAxis: {
           viewWindow: {
@@ -88,7 +88,7 @@ export default {
       chartOptionsThree: {
         title: "Average Scores of Games in Selected Genre Over Time",
         legend: { position: "top" },
-        colors: ["#BF0D3E"],
+        colors: ["#069AEA"],
         height: 500,
         vAxis: {
           viewWindow: {
