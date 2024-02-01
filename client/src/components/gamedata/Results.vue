@@ -25,6 +25,7 @@
       :options="chartOptionsTwo"
     >
     </GraphCard>
+    <!-- Build feature to add more lines to the graph -->
     <GraphCard
       :typeOne="typeTwo"
       :data="yearAndCriticRatings"
@@ -69,9 +70,13 @@ export default {
           easing: "linear",
         },
         vAxis: {
+          title : "Game Title",
           viewWindow: {
             min: 0,
           },
+        },
+        hAxis: {
+          title : "Score",
         },
       },
       chartOptionsTwo: {
@@ -80,9 +85,13 @@ export default {
         colors: ["#069AEA"],
         height: 500,
         vAxis: {
+          title : "Game Publisher",
           viewWindow: {
             min: 0,
           },
+        },
+        hAxis: {
+          title : "Dollars (Millions)",
         },
       },
       chartOptionsThree: {
@@ -91,9 +100,13 @@ export default {
         colors: ["#069AEA"],
         height: 500,
         vAxis: {
+          title : "Average Rating",
           viewWindow: {
             min: 0,
           },
+        },
+        hAxis: {
+          title : "Year",
         },
       },
     };

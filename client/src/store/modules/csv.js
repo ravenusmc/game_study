@@ -38,13 +38,16 @@ const actions = {
 		const path = 'http://localhost:5000/buildCSVCharts';
 		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data)
 				commit('setDataReceived', true)
 				commit('setBestSingleGameByYear', res.data['best_single_game'])
 				commit('setBestSingleGameByYearScore', res.data['best_game_score'])
 				commit('setBestGameByGenreAndYear', res.data['best_game_by_genre_and_year'])
 				commit('setTopFiveGamesAndScoresSelectedYear', res.data['top_five_games_and_scores_selected_year'])
 				commit('setTopPublishersBySelectedYear', res.data['top_publishers_by_selected_year'])
+				res.data['year_and_critic_ratings'] = res.data['year_and_critic_ratings'].map(([year, rating]) => [
+					new Date(year, 0, 1),
+					rating,
+				]);
 				commit('setYearAndCriticRatings', res.data['year_and_critic_ratings'])
 			})
 			.catch((error) => {

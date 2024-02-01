@@ -157,3 +157,5 @@ class Support():
                 count += 1 
                 data_in_hist['10'] = count
         return data_in_hist
+
+
