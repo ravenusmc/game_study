@@ -26,6 +26,7 @@
     >
     </GraphCard>
     <!-- Build feature to add more lines to the graph -->
+    <!-- User can choose as many genres as they want -->
     <GraphCard
       :typeOne="typeTwo"
       :data="yearAndCriticRatings"
