@@ -25,8 +25,7 @@
       :options="chartOptionsTwo"
     >
     </GraphCard>
-    <!-- Build feature to add more lines to the graph -->
-    <!-- User can choose as many genres as they want -->
+    <GenreGraphForm />
     <GraphCard
       :typeOne="typeTwo"
       :data="yearAndCriticRatings"
@@ -39,11 +38,13 @@
 <script>
 import { mapGetters } from "vuex";
 import GraphCard from "@/components/graphs/GraphCard.vue";
+import GenreGraphForm from "@/components/gamedata/GenreGraphForm.vue";
 
 export default {
   name: "Results",
   components: {
     GraphCard,
+    GenreGraphForm,
   },
   computed: {
     ...mapGetters("csv", [
