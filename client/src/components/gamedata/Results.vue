@@ -25,6 +25,7 @@
       :options="chartOptionsTwo"
     >
     </GraphCard>
+    <hr>
     <GenreGraphForm />
     <GraphCard
       :typeOne="typeTwo"
@@ -97,7 +98,7 @@ export default {
         },
       },
       chartOptionsThree: {
-        title: "Average Scores of Games in Selected Genre Over Time",
+        title: "Average Scores of Games in Selected Genre(s) Over Time",
         legend: { position: "top" },
         colors: ["#069AEA"],
         height: 500,
