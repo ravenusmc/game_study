@@ -61,5 +61,16 @@ def buildCSVCharts():
         requested_data_container['top_publishers_by_selected_year'] = data.Top_sales_by_publisher_by_selected_year(year)
     return jsonify(requested_data_container)
 
+@app.route('/buildGenreGraph', methods=['GET', 'POST'])
+def buildGenreGraph():
+    if request.method == 'POST':
+        requested_data_container = {}
+        data = EXAMINECSV()
+        post_data = request.get_json()
+        print(post_data)
+    return jsonify('5')
+
+
+
 if __name__ == '__main__':
     app.run()

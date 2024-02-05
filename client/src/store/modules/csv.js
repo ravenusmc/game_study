@@ -55,6 +55,17 @@ const actions = {
 			});
 	},
 
+	submitGenreSelectionToServer: ({ commit }, { payload }) => {
+		const path = 'http://localhost:5000/buildGenreGraph';
+		axios.post(path, payload)
+		.then((res) => {
+			// commit('', true)
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+	},
+
 };
 
 const mutations = {

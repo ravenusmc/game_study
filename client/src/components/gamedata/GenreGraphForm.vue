@@ -126,28 +126,23 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "GenreGraphForm",
   data() {
     return {
       selectedGenres: [],
-      // genres: [
-      //   "Fighting",
-      // ],
     };
   },
   methods: {
-    // ...mapActions("csv", ["submitSelectionToServer"]),
+    ...mapActions("csv", ["submitGenreSelectionToServer"]),
     submitSelectedGenres() {
       event.preventDefault();
-      console.log(this.selectedGenres);
-      // const payload = {
-      //   year: this.selectedYear,
-      //   genre: this.selectedGenre,
-      // };
-      // this.submitSelectionToServer({ payload });
+      const payload = {
+        selectedGenres: this.selectedGenres,
+      };
+      this.submitGenreSelectionToServer({ payload });
     },
   },
 };
