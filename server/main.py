@@ -67,7 +67,9 @@ def buildGenreGraph():
         requested_data_container = {}
         data = EXAMINECSV()
         post_data = request.get_json()
-        print(post_data)
+        genres = post_data['selectedGenres']
+        data.get_average_game_ratings_by_year_and_selected_genres(genres)
+
     return jsonify('5')
 
 

@@ -59,6 +59,28 @@ class EXAMINECSV():
             year_and_critic_ratings.append(rows)
             count += 1
         return year_and_critic_ratings
+    
+    def get_average_game_ratings_by_year_and_selected_genres(self, genres): 
+        year_and_critic_ratings = []
+        columns = ['Year']
+        columns.extend(genres)
+        year_and_critic_ratings.append(columns)
+        for genre in genres:
+            selected_genre_df = self.data[self.data['Genre'] == genre]
+            average_ratings = selected_genre_df.groupby(['Year_of_Release', 'Genre']).agg({'Critic_Score': 'mean'}).reset_index()
+            print(average_ratings)
+            count = 0 
+            while count < len(average_ratings): 
+                rows = []
+                ratings = average_ratings.iloc[count]
+                year = int(ratings.iloc[0])
+                rating = int(ratings.iloc[2])
+                rows.append(year)
+                rows.append(rating)
+                year_and_critic_ratings.append(rows)
+                count += 1
+        print(year_and_critic_ratings)
+        return year_and_critic_ratings
 
     def Top_sales_by_publisher_by_selected_year(self, year):
         top_publishers_by_selected_year = []
