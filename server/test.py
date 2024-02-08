@@ -26,3 +26,9 @@ print(merged_df)
 3              2001  Adventure     71.571429
 4              2002  Adventure     68.500000
 5              2003  Adventure     68.500000
+
+
+    Year_of_Release         Genre  Critic_Score   Genre2 Critic_Score_genre2 genre3 critic_score_genre3 
+0              1996  Role-Playing     94.000000             0.000000             0.000000
+1              1997  Role-Playing     81.750000             0.000000             0.000000
+2              1998  Role-Playing     82.428571             0.000000             0.000000
