@@ -92,8 +92,8 @@ class EXAMINECSV():
                     current_row.append(0)  # Set to 0 if the column doesn't exist
 
             year_and_critic_ratings.append(current_row)
-        print(year_and_critic_ratings)
-        input()
+        # print(year_and_critic_ratings)
+        # input()
         return year_and_critic_ratings
 
 
