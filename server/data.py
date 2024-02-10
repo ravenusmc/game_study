@@ -79,44 +79,14 @@ class EXAMINECSV():
         columns = ['Year']
         columns.extend(genres)
         year_and_critic_ratings.append(columns)
-
         for index, row in merged_df.iterrows():
             current_row = [int(row['Year_of_Release'])]
-
-            for genre in genres:
-                column_name = f'Critic_Score_{genre}'
-
-                if column_name in merged_df.columns:
-                    current_row.append(int(row[column_name]))
-                else:
-                    current_row.append(0)  # Set to 0 if the column doesn't exist
+            for i in range(2, len(row), 2):  # Assuming ratings columns start from index 2 and are in increments of 2
+                rating = int(row.iloc[i])
+                current_row.append(rating)
 
             year_and_critic_ratings.append(current_row)
-        # print(year_and_critic_ratings)
-        # input()
         return year_and_critic_ratings
-
-
-    
-    # def build_data_from_merged_df(self, genres, merged_df):
-    #     year_and_critic_ratings = []
-    #     columns = ['Year']
-    #     columns.extend(genres)
-    #     year_and_critic_ratings.append(columns)
-    #     count = 0 
-    #     while count < len(merged_df): 
-    #         rows = []
-    #         ratings = merged_df.iloc[count]
-    #         print(ratings)
-    #         input()
-    #         year = int(ratings.iloc[0])
-    #         rating = int(ratings.iloc[2])
-    #         rows.append(year)
-    #         rows.append(rating)
-    #         year_and_critic_ratings.append(rows)
-    #         count += 1
-    #     print(year_and_critic_ratings)
-    #     return year_and_critic_ratings
 
     def Top_sales_by_publisher_by_selected_year(self, year):
         top_publishers_by_selected_year = []

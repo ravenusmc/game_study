@@ -69,11 +69,8 @@ def buildGenreGraph():
         post_data = request.get_json()
         genres = post_data['selectedGenres']
         merged_df = data.get_average_game_ratings_by_year_and_selected_genres(genres)
-        data.build_data_from_merged_df(genres, merged_df)
-
-    return jsonify('5')
-
-
+        year_and_critic_ratings = data.build_data_from_merged_df(genres, merged_df)
+    return jsonify(year_and_critic_ratings)
 
 if __name__ == '__main__':
     app.run()

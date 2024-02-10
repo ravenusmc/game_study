@@ -59,7 +59,8 @@ const actions = {
 		const path = 'http://localhost:5000/buildGenreGraph';
 		axios.post(path, payload)
 		.then((res) => {
-			// commit('', true)
+			console.log(res.data)
+			commit('setYearAndCriticRatings', res.data)
 		})
 		.catch((error) => {
 			console.log(error);
