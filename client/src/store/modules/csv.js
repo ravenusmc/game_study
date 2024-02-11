@@ -60,6 +60,9 @@ const actions = {
 		axios.post(path, payload)
 		.then((res) => {
 			console.log(res.data)
+			res.data = res.data.map((innerArray) => {
+				return innerArray.map((value, index) => (index === 0 ? new Date(value, 0, 1) : value));
+			});
 			commit('setYearAndCriticRatings', res.data)
 		})
 		.catch((error) => {

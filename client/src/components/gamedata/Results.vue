@@ -100,7 +100,8 @@ export default {
       chartOptionsThree: {
         title: "Average Scores of Games in Selected Genre(s) Over Time",
         legend: { position: "top" },
-        colors: ["#069AEA"],
+        colors: ["#069AEA", "#EF3C07", "#EFA507", "#A41D42", "#E109DB", "#971BF3",
+        "#2306F3", "#302480", "#1D60A7", "#189CCD", "#09F165", "#E5FC00"],
         height: 500,
         vAxis: {
           title : "Average Rating",
