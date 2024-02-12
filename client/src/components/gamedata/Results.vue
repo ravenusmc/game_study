@@ -13,6 +13,7 @@
       {{ bestGameByGenreAndYear[0] }}. It's critic score was
       {{ bestGameByGenreAndYear[1] }}.
     </p>
+    <GenreForm />
     <GraphCard
       :typeOne="typeOne"
       :data="topFiveGamesAndScoresSelectedYear"
@@ -39,12 +40,14 @@
 <script>
 import { mapGetters } from "vuex";
 import GraphCard from "@/components/graphs/GraphCard.vue";
+import GenreForm from "@/components/gamedata/GraphForm.vue";
 import GenreGraphForm from "@/components/gamedata/GenreGraphForm.vue";
 
 export default {
   name: "Results",
   components: {
     GraphCard,
+    GenreForm,
     GenreGraphForm,
   },
   computed: {
