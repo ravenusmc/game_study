@@ -70,6 +70,14 @@ const actions = {
 		});
 	},
 
+	changeDataGraphs: ({ commit }, { payload }) => {
+		console.log('Action')
+		const graphType = payload['graph'];
+		commit('setShowBoxPlotGraph', graphType === "Box Plot");
+		commit('setShowHistogram', graphType === "Histogram");
+		commit('setShowScatterPlotGraph', graphType !== "Box Plot" && graphType !== "Histogram");
+	},
+
 };
 
 const mutations = {

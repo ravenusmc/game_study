@@ -86,7 +86,7 @@ export default {
         },
       },
       chartOptionsTwo: {
-        title: "Top Publishers in selected year",
+        title: "Top Publishers in Selected Year",
         legend: { position: "top" },
         colors: ["#069AEA"],
         height: 500,
