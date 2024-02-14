@@ -14,7 +14,8 @@ const data = {
 	bestGameByGenreAndYear: [],
 	topFiveGamesAndScoresSelectedYear: [],
 	topPublishersBySelectedYear: [],
-	yearAndCriticRatings: []
+	yearAndCriticRatings: [],
+	TopFiveGraph: true,
 };
 
 const getters = {
@@ -73,9 +74,9 @@ const actions = {
 	changeDataGraphs: ({ commit }, { payload }) => {
 		console.log('Action')
 		const graphType = payload['graph'];
-		commit('setShowBoxPlotGraph', graphType === "Box Plot");
-		commit('setShowHistogram', graphType === "Histogram");
-		commit('setShowScatterPlotGraph', graphType !== "Box Plot" && graphType !== "Histogram");
+		commit('setTopFiveGraph', graphType === "Top 5 Games for Selected Year");
+		commit('setTopPublishers', graphType === "Top Publishers in Selected Year");
+		// commit('setShowScatterPlotGraph', graphType !== "Box Plot" && graphType !== "Histogram");
 	},
 
 };
@@ -117,6 +118,10 @@ const mutations = {
 	setYearAndCriticRatings(state, value) {
 		state.yearAndCriticRatings = value
 	},
+
+	setTopFiveGraph(state, value) {
+		state.
+	}
 
 };
 
