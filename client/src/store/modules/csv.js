@@ -15,7 +15,8 @@ const data = {
 	topFiveGamesAndScoresSelectedYear: [],
 	topPublishersBySelectedYear: [],
 	yearAndCriticRatings: [],
-	TopFiveGraph: true,
+	topFiveGraph: true,
+	topPublishersGraph: false,
 };
 
 const getters = {
@@ -28,6 +29,8 @@ const getters = {
 	topFiveGamesAndScoresSelectedYear: (state) => state.topFiveGamesAndScoresSelectedYear,
 	topPublishersBySelectedYear: (state) => state.topPublishersBySelectedYear,
 	yearAndCriticRatings: (state) => state.yearAndCriticRatings,
+	topFiveGraph: (state) => state.topFiveGraph, 
+	topPublishersGraph: (state) => state.topPublishersGraph,
 };
 
 
