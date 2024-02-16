@@ -123,7 +123,7 @@ const mutations = {
 	},
 
 	setTopFiveGraph(state, value) {
-		state.
+		state.topFiveGraph = value
 	}
 
 };
