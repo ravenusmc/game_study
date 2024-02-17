@@ -75,7 +75,6 @@ const actions = {
 	},
 
 	changeDataGraphs: ({ commit }, { payload }) => {
-		console.log('Action')
 		const graphType = payload['graph'];
 		commit('setTopFiveGraph', graphType === "Top 5 Games for Selected Year");
 		commit('setTopPublishers', graphType === "Top Publishers in Selected Year");
@@ -124,7 +123,11 @@ const mutations = {
 
 	setTopFiveGraph(state, value) {
 		state.topFiveGraph = value
-	}
+	},
+
+	setTopPublishers(state, value) {
+		state.topPublishersGraph = value
+	},
 
 };
 
