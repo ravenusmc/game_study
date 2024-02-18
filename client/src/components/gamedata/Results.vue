@@ -1,19 +1,25 @@
 <template>
   <div>
-    <section class='basic-data-area'>
-      <p>
-        Here are the results for {{ selectedYear }} and the genre that was
-        selected was: {{ selectedGenre }}
-      </p>
-      <p>
-        The best game that year was {{ bestSingleGameByYear }}. It's critic
-        score was {{ bestSingleGameByYearScore }}.
-      </p>
-      <p>
-        The best game that year, on the selected genre, was
-        {{ bestGameByGenreAndYear[0] }}. It's critic score was
-        {{ bestGameByGenreAndYear[1] }}.
-      </p>
+    <section class="basic-data-area">
+      <h3 class="center">Basic Information:</h3>
+      <div>
+        <p>
+          Here are the results for <span>{{ selectedYear }}</span> and the genre
+          <span>{{ selectedGenre }}:</span>
+        </p>
+        <p>
+          The best game in <span>{{ selectedYear }}</span> was
+          <span>{{ bestSingleGameByYear }}</span> and it had a critic score was
+          <span>{{ bestSingleGameByYearScore }}</span
+          >.
+        </p>
+        <p>
+          The best game in <span>{{ selectedYear }}</span
+          >, on the selected genre of <span>{{ selectedGenre }}</span>, was
+          <span>{{ bestGameByGenreAndYear[0] }}</span> with a critic score of
+          <span>{{ bestGameByGenreAndYear[1] }}</span>.
+        </p>
+      </div>
     </section>
     <hr />
     <div class="genre-form">
@@ -146,8 +152,15 @@ export default {
 </script>
 
 <style scoped>
+span {
+  font-weight: bold;
+}
+
 .basic-data-area {
-  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
 }
 
 .genre-form {
