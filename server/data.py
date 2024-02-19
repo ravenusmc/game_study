@@ -107,8 +107,20 @@ class EXAMINECSV():
             count += 1
         return top_publishers_by_selected_year
     
-    def Top_sales_by_publisher_by_selected_year_genre(self, year, genre):
-        pass
+    def top_sales_by_publisher_by_selected_year_and_genre(self, year, genre):
+        top_publishers_by_selected_year_and_genre = []
+        columns = ['Publisher', 'Sales']
+        top_publishers_by_selected_year_and_genre.append(columns)
+        # Filter the data by year and genre
+        selected_data = self.data[(self.data['Year_of_Release'] == year) & (self.data['Genre'] == genre)]
+        # Group by Publisher and sum the Global_Sales
+        top_publishers = selected_data.groupby(['Publisher']).agg({'Global_Sales': 'sum'}).reset_index()
+        # Sort and get the top 5 publishers
+        top_publishers_sorted = top_publishers.nlargest(5, 'Global_Sales')
+        # Iterate through the top publishers and add to the result list
+        for _, row in top_publishers_sorted.iterrows():
+            top_publishers_by_selected_year_and_genre.append([row['Publisher'], row['Global_Sales']])
+        return top_publishers_by_selected_year_and_genre
     
     def get_distinct_years(self):
         unique_values = sorted(self.data['Year_of_Release'].unique())

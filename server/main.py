@@ -59,6 +59,7 @@ def buildCSVCharts():
         requested_data_container['top_five_games_and_scores_selected_year'] = data.get_top_five_games_by_year(year)
         requested_data_container['year_and_critic_ratings'] = data.get_average_game_ratings_by_genre_and_year(genre)
         requested_data_container['top_publishers_by_selected_year'] = data.Top_sales_by_publisher_by_selected_year(year)
+        requested_data_container['top_publishers_by_selected_year_and_genre'] = data.top_sales_by_publisher_by_selected_year_and_genre(year, genre)
     return jsonify(requested_data_container)
 
 @app.route('/buildGenreGraph', methods=['GET', 'POST'])
