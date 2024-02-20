@@ -15,9 +15,10 @@
         </p>
         <p>
           The best game in <span>{{ selectedYear }}</span
-          >, on the selected genre of <span>{{ selectedGenre }}</span>, was
-          <span>{{ bestGameByGenreAndYear[0] }}</span> with a critic score of
-          <span>{{ bestGameByGenreAndYear[1] }}</span>.
+          >, on the selected genre of <span>{{ selectedGenre }}</span
+          >, was <span>{{ bestGameByGenreAndYear[0] }}</span> with a critic
+          score of <span>{{ bestGameByGenreAndYear[1] }}</span
+          >.
         </p>
       </div>
     </section>
@@ -42,6 +43,12 @@
         </GraphCard>
       </div>
     </section>
+    <GraphCard
+      :typeOne="typeOne"
+      :data="topPublishersBySelectedYearAndGenre"
+      :options="chartOptionsFour"
+    >
+    </GraphCard>
     <hr />
     <GenreGraphForm />
     <GraphCard
@@ -74,6 +81,7 @@ export default {
       "bestSingleGameByYearScore",
       "bestGameByGenreAndYear",
       "topFiveGamesAndScoresSelectedYear",
+      "topPublishersBySelectedYearAndGenre",
       "topPublishersBySelectedYear",
       "yearAndCriticRatings",
       "topFiveGraph",
@@ -144,6 +152,21 @@ export default {
         },
         hAxis: {
           title: "Year",
+        },
+      },
+      chartOptionsFour: {
+        title: "Top Publishers in Selected Year and Genre",
+        legend: { position: "top" },
+        colors: ["#069AEA"],
+        height: 500,
+        vAxis: {
+          title: "Game Publisher",
+          viewWindow: {
+            min: 0,
+          },
+        },
+        hAxis: {
+          title: "Dollars (Millions)",
         },
       },
     };

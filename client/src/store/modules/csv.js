@@ -14,6 +14,7 @@ const data = {
 	bestGameByGenreAndYear: [],
 	topFiveGamesAndScoresSelectedYear: [],
 	topPublishersBySelectedYear: [],
+	topPublishersBySelectedYearAndGenre: [],
 	yearAndCriticRatings: [],
 	topFiveGraph: true,
 	topPublishersGraph: false,
@@ -28,6 +29,7 @@ const getters = {
 	bestGameByGenreAndYear: (state) => state.bestGameByGenreAndYear,
 	topFiveGamesAndScoresSelectedYear: (state) => state.topFiveGamesAndScoresSelectedYear,
 	topPublishersBySelectedYear: (state) => state.topPublishersBySelectedYear,
+	topPublishersBySelectedYearAndGenre: (state) => state.topPublishersBySelectedYearAndGenre,
 	yearAndCriticRatings: (state) => state.yearAndCriticRatings,
 	topFiveGraph: (state) => state.topFiveGraph, 
 	topPublishersGraph: (state) => state.topPublishersGraph,
@@ -48,6 +50,8 @@ const actions = {
 				commit('setBestGameByGenreAndYear', res.data['best_game_by_genre_and_year'])
 				commit('setTopFiveGamesAndScoresSelectedYear', res.data['top_five_games_and_scores_selected_year'])
 				commit('setTopPublishersBySelectedYear', res.data['top_publishers_by_selected_year'])
+				console.log(res.data['top_publishers_by_selected_year_and_genre'])
+				commit('setTopPublishersBySelectedYearAndGenre', res.data['top_publishers_by_selected_year_and_genre'])
 				res.data['year_and_critic_ratings'] = res.data['year_and_critic_ratings'].map(([year, rating]) => [
 					new Date(year, 0, 1),
 					rating,
@@ -63,7 +67,6 @@ const actions = {
 		const path = 'http://localhost:5000/buildGenreGraph';
 		axios.post(path, payload)
 		.then((res) => {
-			console.log(res.data)
 			res.data = res.data.map((innerArray) => {
 				return innerArray.map((value, index) => (index === 0 ? new Date(value, 0, 1) : value));
 			});
@@ -111,6 +114,10 @@ const mutations = {
 
 	setTopFiveGamesAndScoresSelectedYear(state, value) {
 		state.topFiveGamesAndScoresSelectedYear = value
+	},
+
+	setTopPublishersBySelectedYearAndGenre(state, value) {
+		state.topPublishersBySelectedYearAndGenre = value
 	},
 
 	setTopPublishersBySelectedYear(state, value) {
