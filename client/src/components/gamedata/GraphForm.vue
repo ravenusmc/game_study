@@ -21,7 +21,7 @@ export default {
   name: "GraphForm",
   data() {
     return {
-      Graphs: ["Top 5 Games for Selected Year", "Top Publishers in Selected Year"],
+      Graphs: ["Top 5 Games for Selected Year", "Top Publishers in Selected Year", "Top Publishers in Selected Year and Genre"],
       selectedGraph: "Top 5 Games for Selected Year",
     };
   },

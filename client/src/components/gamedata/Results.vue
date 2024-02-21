@@ -42,13 +42,16 @@
         >
         </GraphCard>
       </div>
+      <div v-if="topPublishersBySelectedYearAndGenreGraph">
+        <GraphCard
+          :typeOne="typeOne"
+          :data="topPublishersBySelectedYearAndGenre"
+          :options="chartOptionsFour"
+        >
+        </GraphCard>
+      </div>
     </section>
-    <GraphCard
-      :typeOne="typeOne"
-      :data="topPublishersBySelectedYearAndGenre"
-      :options="chartOptionsFour"
-    >
-    </GraphCard>
+
     <hr />
     <GenreGraphForm />
     <GraphCard
@@ -86,6 +89,7 @@ export default {
       "yearAndCriticRatings",
       "topFiveGraph",
       "topPublishersGraph",
+      "topPublishersBySelectedYearAndGenreGraph",
     ]),
   },
   data() {
@@ -116,6 +120,10 @@ export default {
         legend: { position: "top" },
         colors: ["#069AEA"],
         height: 500,
+        animation: {
+          duration: 1000,
+          easing: "linear",
+        },
         vAxis: {
           title: "Game Publisher",
           viewWindow: {
@@ -159,6 +167,10 @@ export default {
         legend: { position: "top" },
         colors: ["#069AEA"],
         height: 500,
+        animation: {
+          duration: 1000,
+          easing: "linear",
+        },
         vAxis: {
           title: "Game Publisher",
           viewWindow: {

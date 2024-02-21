@@ -18,6 +18,7 @@ const data = {
 	yearAndCriticRatings: [],
 	topFiveGraph: true,
 	topPublishersGraph: false,
+	topPublishersBySelectedYearAndGenreGraph: false,
 };
 
 const getters = {
@@ -33,6 +34,7 @@ const getters = {
 	yearAndCriticRatings: (state) => state.yearAndCriticRatings,
 	topFiveGraph: (state) => state.topFiveGraph, 
 	topPublishersGraph: (state) => state.topPublishersGraph,
+	topPublishersBySelectedYearAndGenreGraph: (state) => state.topPublishersBySelectedYearAndGenreGraph,
 };
 
 
@@ -81,6 +83,7 @@ const actions = {
 		const graphType = payload['graph'];
 		commit('setTopFiveGraph', graphType === "Top 5 Games for Selected Year");
 		commit('setTopPublishers', graphType === "Top Publishers in Selected Year");
+		commit('setTopPublishersBySelectedYearAndGenreGraph', graphType === "Top Publishers in Selected Year and Genre")
 		// commit('setShowScatterPlotGraph', graphType !== "Box Plot" && graphType !== "Histogram");
 	},
 
@@ -134,6 +137,10 @@ const mutations = {
 
 	setTopPublishers(state, value) {
 		state.topPublishersGraph = value
+	},
+
+	setTopPublishersBySelectedYearAndGenreGraph(state, value) {
+		state.topPublishersBySelectedYearAndGenreGraph = value
 	},
 
 };
