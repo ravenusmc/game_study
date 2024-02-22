@@ -25,6 +25,11 @@ const routes = [
     name: 'GameData',
     component: () => import(/* webpackChunkName: "about" */ '../views/GameData.vue')
   },
+  {
+    path: '/sign_up',
+    name: 'signup',
+    component: () => import('../views/SignUp.vue'),
+  },
 ]
 
 const router = new VueRouter({
