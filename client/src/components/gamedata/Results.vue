@@ -1,25 +1,28 @@
 <template>
   <div>
     <section class="basic-data-area">
-      <h3 class="center">Basic Information:</h3>
       <div>
-        <p>
-          Here are the results for <span>{{ selectedYear }}</span> and the genre
-          <span>{{ selectedGenre }}:</span>
-        </p>
-        <p>
-          The best game in <span>{{ selectedYear }}</span> was
-          <span>{{ bestSingleGameByYear }}</span> and it had a critic score was
-          <span>{{ bestSingleGameByYearScore }}</span
-          >.
-        </p>
-        <p>
-          The best game in <span>{{ selectedYear }}</span
-          >, on the selected genre of <span>{{ selectedGenre }}</span
-          >, was <span>{{ bestGameByGenreAndYear[0] }}</span> with a critic
-          score of <span>{{ bestGameByGenreAndYear[1] }}</span
-          >.
-        </p>
+        <h3 class="center">Basic Information:</h3>
+        <div>
+          <p>
+            Here are the results for <span>{{ selectedYear }}</span> and the
+            genre
+            <span>{{ selectedGenre }}:</span>
+          </p>
+          <p>
+            The best game in <span>{{ selectedYear }}</span> was
+            <span>{{ bestSingleGameByYear }}</span> and it had a critic score
+            was <span>{{ bestSingleGameByYearScore }}</span
+            >.
+          </p>
+          <p>
+            The best game in <span>{{ selectedYear }}</span
+            >, on the selected genre of <span>{{ selectedGenre }}</span
+            >, was <span>{{ bestGameByGenreAndYear[0] }}</span> with a critic
+            score of <span>{{ bestGameByGenreAndYear[1] }}</span
+            >.
+          </p>
+        </div>
       </div>
     </section>
     <hr />
@@ -195,7 +198,9 @@ span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 30px;
+  justify-content: center;
+  margin: 15px;
+  border: 3px solid red;
 }
 
 .genre-form {
