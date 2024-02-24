@@ -1,14 +1,11 @@
 <template>
   <div>
     <section class="basic-data-area">
-      <div>
+      <div class='basic-data-area-div'>
         <h3 class="center">Basic Information:</h3>
         <div>
-          <p>
-            Here are the results for <span>{{ selectedYear }}</span> and the
-            genre
-            <span>{{ selectedGenre }}:</span>
-          </p>
+          <p>Year Selected: <span>{{ selectedYear }}</span> </p>
+          <p>Genre Selected: <span>{{ selectedGenre }}</span></p>
           <p>
             The best game in <span>{{ selectedYear }}</span> was
             <span>{{ bestSingleGameByYear }}</span> and it had a critic score
@@ -200,12 +197,17 @@ span {
   align-items: center;
   justify-content: center;
   margin: 15px;
-  border: 3px solid red;
+}
+
+.basic-data-area-div {
+  border-radius: 12px;
+  border: 2px solid black;
 }
 
 .genre-form {
   display: flex;
   justify-content: center;
+
 }
 
 .graph-area {
