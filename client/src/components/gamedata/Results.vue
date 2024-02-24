@@ -7,10 +7,9 @@
           <p>Year Selected: <span>{{ selectedYear }}</span> </p>
           <p>Genre Selected: <span>{{ selectedGenre }}</span></p>
           <p>
-            The best game in <span>{{ selectedYear }}</span> was
-            <span>{{ bestSingleGameByYear }}</span> and it had a critic score
-            was <span>{{ bestSingleGameByYearScore }}</span
-            >.
+            The best game was <span>{{ bestSingleGameByYear }}</span> 
+            and it had a critic score
+            of <span>{{ bestSingleGameByYearScore }}</span>.
           </p>
           <p>
             The best game in <span>{{ selectedYear }}</span
@@ -199,15 +198,20 @@ span {
   margin: 15px;
 }
 
+h3 {
+  text-transform: uppercase;
+}
+
 .basic-data-area-div {
+  padding: 10px;
   border-radius: 12px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
+  background-color: rgba(6,154,234,0.8);
 }
 
 .genre-form {
   display: flex;
   justify-content: center;
-
 }
 
 .graph-area {
