@@ -1,9 +1,8 @@
 <template>
   <div>
     <div class="signup-heading">
-      <h1>SIGN UP</h1>
+      <h1 class='center'>SIGN UP</h1>
     </div>
-
     <div class="container">
       <form @submit="signup">
         <div class="form-group form-inline">
@@ -37,17 +36,6 @@
             id="email"
             v-model="email"
             placeholder="Email"
-          />
-        </div>
-        <div class="form-group form-inline">
-          <label for="ienumber">IE Number:</label>
-          <input
-            type="text"
-            name="ienumber"
-            class="form-control"
-            id="ieNumber"
-            v-model="ieNumber"
-            placeholder="IE Number"
           />
         </div>
         <div class="form-group form-inline">
@@ -95,7 +83,6 @@ export default {
       firstName: "",
       lastName: "",
       email: "",
-      ieNumber: "",
       password: "",
       confirmPassword: "",
     };
@@ -110,8 +97,6 @@ export default {
         alert("Last name must be entered");
       } else if (this.email === "") {
         alert("Email must be entered");
-      } else if (this.ieNumber === "") {
-        alert("User name must be entered");
       } else if (this.password === "") {
         alert("Password must be entered");
       } else if (this.password !== this.confirmPassword) {
@@ -123,7 +108,6 @@ export default {
           firstName: this.firstName,
           lastName: this.lastName,
           email: this.email,
-          ieNumber: this.ieNumber,
           password: this.password,
           confirmPassword: this.confirmPassword,
         };

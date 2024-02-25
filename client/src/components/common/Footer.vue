@@ -3,7 +3,7 @@
     <footer>
       <div class="footer_fix">
         <h2 class="footerTitle font">
-          Copyright &copy; 2023 Double Sun Productions<br />
+          Copyright &copy; 2024 Double Sun Productions<br />
         </h2>
         <div class="icon-div">
           <a href="https://twitter.com/mcuddy7">

@@ -2,7 +2,7 @@
   <div>
     <section class="basic-data-area">
       <div class='basic-data-area-div'>
-        <h3 class="center">Basic Information:</h3>
+        <h3 class="center">Basic Information</h3>
         <div>
           <p>Year Selected: <span>{{ selectedYear }}</span> </p>
           <p>Genre Selected: <span>{{ selectedGenre }}</span></p>

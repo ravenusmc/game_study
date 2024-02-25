@@ -46,7 +46,7 @@
                 <router-link v-if="!loginFlag" to="/login">Login</router-link>
               </a>
             </li>
-          </span>
+          </span> -->
           <span v-if="!loginFlag">
             <li class="nav-item">
               <a class="nav-link">
@@ -55,7 +55,7 @@
                 >
               </a>
             </li>
-          </span> -->
+          </span>
           <span v-if="loginFlag">
             <li class="nav-item">
               <a class="nav-link">
