@@ -14,6 +14,17 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        db = Connection()
+        post_data = request.get_json()
+        user = User(post_data['firstName'], post_data['lastName'], post_data['email'],
+                    post_data['ieNumber'], post_data['password'])
+        hashed = db.encrypt_pass(post_data)
+        user_created = db.insert(user, hashed)
+        return jsonify('5')
+
 @app.route('/getGameReviews', methods=['GET', 'POST'])
 def fetchGameReviews():
     if request.method == 'POST':
@@ -75,4 +86,4 @@ def buildGenreGraph():
     return jsonify(year_and_critic_ratings)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
