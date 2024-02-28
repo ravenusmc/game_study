@@ -20,10 +20,9 @@ def signup():
     if request.method == 'POST':
         db = Connection()
         post_data = request.get_json()
-        user = User(post_data['firstName'], post_data['lastName'], post_data['email'],
-                    post_data['password'])
         hashed = db.encrypt_pass(post_data)
-        user_created = db.insert(user, hashed)
+        user_created = db.insert(post_data, hashed)
+        print(user_created)
         return jsonify('5')
 
 @app.route('/getGameReviews', methods=['GET', 'POST'])
@@ -72,7 +71,6 @@ def buildCSVCharts():
         requested_data_container['year_and_critic_ratings'] = data.get_average_game_ratings_by_genre_and_year(genre)
         requested_data_container['top_publishers_by_selected_year'] = data.Top_sales_by_publisher_by_selected_year(year)
         requested_data_container['top_publishers_by_selected_year_and_genre'] = data.top_sales_by_publisher_by_selected_year_and_genre(year, genre)
-        print(requested_data_container)
     return jsonify(requested_data_container)
 
 @app.route('/buildGenreGraph', methods=['GET', 'POST'])
