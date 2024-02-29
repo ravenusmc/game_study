@@ -22,7 +22,6 @@ def signup():
         post_data = request.get_json()
         hashed = db.encrypt_pass(post_data)
         user_created = db.insert(post_data, hashed)
-        print(user_created)
         return jsonify('5')
 
 @app.route('/getGameReviews', methods=['GET', 'POST'])

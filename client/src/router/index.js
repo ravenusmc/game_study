@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store/index';
 import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
@@ -19,6 +20,20 @@ const routes = [
     path: '/analysis',
     name: 'analysis',
     component: () => import(/* webpackChunkName: "about" */ '../views/Analysis.vue')
+    // beforeEnter: (to, from, next) => {
+    //   if (store.state.common.loginFlag === false) {
+    //     next('/login');
+    //   } else {
+    //     next();
+    //   }
+    // },
+    // beforeRouteLeave: (to, from, next) => {
+    //   if (store.state.common.loginFlag === false) {
+    //     next('/login');
+    //   } else {
+    //     next();
+    //   }
+    // },
   },
   {
     path: '/gamedata',
@@ -29,6 +44,11 @@ const routes = [
     path: '/sign_up',
     name: 'signup',
     component: () => import('../views/SignUp.vue'),
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/Login.vue'),
   },
 ]
 
