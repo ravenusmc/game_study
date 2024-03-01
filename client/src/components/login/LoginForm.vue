@@ -64,9 +64,9 @@ export default {
     login(evt) {
       evt.preventDefault();
       const payload = {
-        ieNumber: this.email,
+        email: this.email,
         password: this.password,
-      };
+			};
       this.loginUser({ payload });
     },
   },
