@@ -19,26 +19,40 @@ const routes = [
   {
     path: '/analysis',
     name: 'analysis',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Analysis.vue')
-    // beforeEnter: (to, from, next) => {
-    //   if (store.state.common.loginFlag === false) {
-    //     next('/login');
-    //   } else {
-    //     next();
-    //   }
-    // },
-    // beforeRouteLeave: (to, from, next) => {
-    //   if (store.state.common.loginFlag === false) {
-    //     next('/login');
-    //   } else {
-    //     next();
-    //   }
-    // },
+    component: () => import(/* webpackChunkName: "about" */ '../views/Analysis.vue'),
+    beforeEnter: (to, from, next) => {
+      if (store.state.common.loginFlag === false) {
+        next('/login');
+      } else {
+        next();
+      }
+    },
+    beforeRouteLeave: (to, from, next) => {
+      if (store.state.common.loginFlag === false) {
+        next('/login');
+      } else {
+        next();
+      }
+    },
   },
   {
     path: '/gamedata',
     name: 'GameData',
-    component: () => import(/* webpackChunkName: "about" */ '../views/GameData.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/GameData.vue'),
+    beforeEnter: (to, from, next) => {
+      if (store.state.common.loginFlag === false) {
+        next('/login');
+      } else {
+        next();
+      }
+    },
+    beforeRouteLeave: (to, from, next) => {
+      if (store.state.common.loginFlag === false) {
+        next('/login');
+      } else {
+        next();
+      }
+    },
   },
   {
     path: '/sign_up',

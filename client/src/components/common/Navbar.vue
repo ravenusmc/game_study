@@ -40,13 +40,13 @@
               <router-link to="/about">About</router-link>
             </a>
           </li>
-          <!-- <span v-if="!loginFlag">
+          <span v-if="!loginFlag">
             <li class="nav-item">
               <a class="nav-link">
                 <router-link v-if="!loginFlag" to="/login">Login</router-link>
               </a>
             </li>
-          </span> -->
+          </span>
           <span v-if="!loginFlag">
             <li class="nav-item">
               <a class="nav-link">
@@ -75,23 +75,24 @@
 </template>
 
 <script>
-// import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "navbar",
-  // data() {
-  //   return {
-  //     showNav: false,
-  //   };
-  // },
-  // computed: {
-  //   ...mapGetters("common", ["loginFlag"]),
-  // },
-  // methods: {
-  //   ...mapActions(["common/logout"]),
-  //   logout: function () {
-  //     this.$store.dispatch("common/logout");
-  //   },
-  // },
+  data() {
+    return {
+      showNav: false,
+    };
+  },
+  computed: {
+    ...mapGetters("common", ["loginFlag"]),
+  },
+  methods: {
+    ...mapActions(["common/logout"]),
+    logout: function () {
+      this.$store.dispatch("common/logout");
+    },
+  },
 };
 </script>
 

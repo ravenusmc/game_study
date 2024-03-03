@@ -8,7 +8,7 @@ Vue.use(Vuex);
 const data = {
 	userNotFound: false,
 	passwordNoMatch: false,
-	// loginFlag: false,
+	loginFlag: false,
 };
 
 const getters = {
@@ -35,9 +35,9 @@ const actions = {
 		axios.post(path, payload)
 			.then((res) => {
 				if (res.data.login_flag) {
-					commit('session/setUserObject', res.data.user, { root: true })
+					// commit('session/setUserObject', res.data.user, { root: true })
 					commit('setLoginFlag', res.data.login_flag);
-					router.push({ name: 'main' });
+					router.push({ name: 'analysis' });
 				}
 				commit('setNoPasswordMatch', res.data.Password_no_match);
 				commit('setUserNotFound', res.data.Not_found);
@@ -47,14 +47,14 @@ const actions = {
 			});
 	},
 
-	// logout: ({ commit }) => {
-	// 	let userNotFound = false;
-	// 	let passwordNoMatch = false;
-	// 	let loginFlag = false;
-	// 	commit('setUserNotFound', userNotFound);
-	// 	commit('setNoPasswordMatch', passwordNoMatch);
-	// 	commit('setLoginFlag', loginFlag);
-	// },
+	logout: ({ commit }) => {
+		let userNotFound = false;
+		let passwordNoMatch = false;
+		let loginFlag = false;
+		commit('setUserNotFound', userNotFound);
+		commit('setNoPasswordMatch', passwordNoMatch);
+		commit('setLoginFlag', loginFlag);
+	},
 
 };
 
@@ -68,9 +68,9 @@ const mutations = {
 		state.passwordNoMatch = value;
 	},
 
-	// setLoginFlag(state, value) {
-	// 	state.loginFlag = value;
-	// },
+	setLoginFlag(state, value) {
+		state.loginFlag = value;
+	},
 
 };
 
