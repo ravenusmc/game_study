@@ -196,6 +196,7 @@ span {
   align-items: center;
   justify-content: center;
   margin: 15px;
+  height: 250px;
 }
 
 h3 {
@@ -205,7 +206,6 @@ h3 {
 .basic-data-area-div {
   padding: 10px;
   border-radius: 12px;
-  /* border: 2px solid black; */
   background-color: rgba(6,154,234,0.8);
 }
 
