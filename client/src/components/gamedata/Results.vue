@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="basic-data-area">
+    <div class="basic-data-area">
       <div class='basic-data-area-div'>
         <h3 class="center">Basic Information</h3>
         <div>
@@ -20,12 +20,12 @@
           </p>
         </div>
       </div>
-    </section>
+    </div>
     <hr />
     <div class="genre-form">
       <GenreForm />
     </div>
-    <section class="graph-area">
+    <div class="graph-area">
       <div v-if="topFiveGraph">
         <GraphCard
           :typeOne="typeOne"
@@ -49,7 +49,7 @@
         >
         </GraphCard>
       </div>
-    </section>
+    </div>
 
     <hr />
     <GenreGraphForm />

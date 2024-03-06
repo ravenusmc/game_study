@@ -14,7 +14,21 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+    beforeEnter: (to, from, next) => {
+      if (store.state.common.loginFlag === false) {
+        next('/login');
+      } else {
+        next();
+      }
+    },
+    beforeRouteLeave: (to, from, next) => {
+      if (store.state.common.loginFlag === false) {
+        next('/login');
+      } else {
+        next();
+      }
+    },
   },
   {
     path: '/analysis',
@@ -35,6 +49,26 @@ const routes = [
       }
     },
   },
+  //This was used for problem solving purposes on an issue that I had...
+  // {
+  //   path: '/gamecsv',
+  //   name: 'GameCSV',
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/GameCSV.vue'),
+  //   beforeEnter: (to, from, next) => {
+  //     if (store.state.common.loginFlag === false) {
+  //       next('/login');
+  //     } else {
+  //       next();
+  //     }
+  //   },
+  //   beforeRouteLeave: (to, from, next) => {
+  //     if (store.state.common.loginFlag === false) {
+  //       next('/login');
+  //     } else {
+  //       next();
+  //     }
+  //   },
+  // },
   {
     path: '/gamedata',
     name: 'GameData',
@@ -46,13 +80,13 @@ const routes = [
         next();
       }
     },
-    beforeRouteLeave: (to, from, next) => {
-      if (store.state.common.loginFlag === false) {
-        next('/login');
-      } else {
-        next();
-      }
-    },
+    // beforeRouteLeave: (to, from, next) => {
+    //   if (store.state.common.loginFlag === false) {
+    //     next('/login');
+    //   } else {
+    //     next();
+    //   }
+    // },
   },
   {
     path: '/sign_up',

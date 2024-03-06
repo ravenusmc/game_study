@@ -1,11 +1,11 @@
 <template>
   <div>
-    <section>
+    <div>
       <div>
         <h3 class="center">Currently No Data</h3>
-        <p>Please Select a Year and Genre Above</p>
+        <p class='center'>Please Select a Year and Genre Above</p>
       </div>
-    </section>
+    </div>
     <div class="pic-section">
       <div class="pic-one"></div>
       <div class="pic-two"></div>
@@ -20,11 +20,6 @@ export default {
 </script>
 
 <style scoped>
-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
 
 h3 {
   text-transform: uppercase;
@@ -33,6 +28,8 @@ h3 {
 .pic-section {
   display: flex;
   flex-direction: row;
+  margin-bottom: 30px;
+  height: 500px;
 }
 
 .pic-one {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section>
+    <div>
       <div class="title-div">
         <h2 class="center">Game Data Analysis</h2>
       </div>
@@ -11,7 +11,7 @@
         <BlankData v-if="!dataReceived" />
         <Results v-if="dataReceived" />
       </div>
-    </section>
+    </div>
   </div>
 </template>
 

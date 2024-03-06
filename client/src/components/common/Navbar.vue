@@ -28,6 +28,13 @@
               </a>
             </li>
           </span>
+          <!-- <span>
+            <li class="nav-item">
+              <a class="nav-link">
+                <router-link to="/gamecsv">Game CSV</router-link>
+              </a>
+            </li>
+          </span> -->
           <span>
             <li class="nav-item">
               <a class="nav-link">
