@@ -6,10 +6,6 @@ class EXAMINECSV():
 
     def __init__(self):
         self.data = pd.read_csv('./data/Cleaned_data.csv')
-    
-    def get_distinct_years(self):
-        unique_values = sorted(self.data['Year_of_Release'].unique())
-        print(unique_values)
         
     def get_best_single_game_by_year(self, selected_year):
         df = self.data[self.data['Year_of_Release'] == selected_year]

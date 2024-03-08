@@ -4,14 +4,14 @@
       <div class="form-area">
         <div class="form-input-area">
           <h2 class="center signup-title title-size font">Login</h2>
-          <h1 v-if="userNotFound" class="center login-problem">
-            User is not found, Please
-            <a
-              ><router-link class="alert" to="/sign_up"
+          <h3 v-if="userNotFound" class="center login-problem">
+            User is not found.
+            <br>
+            <a><router-link class="alert" to="/sign_up"
                 >sign up.</router-link
               ></a
             >
-          </h1>
+          </h3>
           <h1 v-if="passwordNoMatch" class="center login-problem alert">
             Password is Invalid
           </h1>
@@ -26,7 +26,7 @@
               />
             </div>
             <div class="field">
-              <label class="password-label" for="exampleInputPassword2"
+              <label for="exampleInputPassword2"
                 >Password:</label
               >
               <input
@@ -66,7 +66,7 @@ export default {
       const payload = {
         email: this.email,
         password: this.password,
-			};
+      };
       this.loginUser({ payload });
     },
   },
@@ -85,11 +85,9 @@ section {
 .signup-title {
   text-transform: uppercase;
   font-weight: bold;
-  color: white;
 }
 .login-problem {
-  font-size: 10px;
-  color: white;
+  font-size: 15px;
 }
 .form-area {
   display: flex;
@@ -98,19 +96,17 @@ section {
   align-items: center;
 }
 .form-input-area {
-  background-color: #2da5e5;
+  background-color: rgba(45, 165, 229, 0.7);
   padding: 15px;
   border-radius: 15px;
-  border: 2px solid black;
+  width: 350px;
 }
+
 .button-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.password-label {
-  margin-right: 2%;
 }
 
 button {
