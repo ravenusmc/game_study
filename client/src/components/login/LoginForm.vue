@@ -17,16 +17,16 @@
           </h1>
           <form @submit="login">
             <div class="field">
-              <label for="exampleInputPassword2">email:</label>
+              <label class='email-input' for="email">email:</label>
               <input
                 class="input is-primary is-rounded"
-                type="name"
+                type="email"
                 v-model="email"
                 placeholder="email"
               />
             </div>
             <div class="field">
-              <label for="exampleInputPassword2"
+              <label for="password"
                 >Password:</label
               >
               <input
@@ -95,6 +95,7 @@ section {
   justify-content: center;
   align-items: center;
 }
+
 .form-input-area {
   background-color: rgba(45, 165, 229, 0.7);
   padding: 15px;
@@ -107,11 +108,27 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-button {
   margin-top: 10px;
 }
+
+.email-input {
+  margin-right:30px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.label {
+  width: 100px; /* Adjust the width as needed */
+}
+
+.input {
+  width: 300px; /* Adjust the width as needed */
+}
+
 @media only all and (max-width: 900px) {
   section {
     margin-top: -100px;
