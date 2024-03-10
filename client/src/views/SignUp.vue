@@ -134,10 +134,9 @@ export default {
 }
 
 form {
-  border: 2px solid black;
   border-radius: 15px;
   margin: 50px;
   padding: 20px;
-  background-color: #2da5e5;
+  background-color: rgba(45, 165, 229, 0.7);
 }
 </style>

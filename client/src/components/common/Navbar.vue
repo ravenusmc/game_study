@@ -24,21 +24,14 @@
           <span>
             <li class="nav-item">
               <a class="nav-link">
-                <router-link to="/analysis">MetaCritic-Analysis</router-link>
+                <router-link to="/gamedata">Game Data Analysis</router-link>
               </a>
             </li>
           </span>
-          <!-- <span>
-            <li class="nav-item">
-              <a class="nav-link">
-                <router-link to="/gamecsv">Game CSV</router-link>
-              </a>
-            </li>
-          </span> -->
           <span>
             <li class="nav-item">
               <a class="nav-link">
-                <router-link to="/gamedata">Game Data Analysis</router-link>
+                <router-link to="/analysis">MetaCritic-Analysis</router-link>
               </a>
             </li>
           </span>

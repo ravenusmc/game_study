@@ -6,18 +6,21 @@
           <h2 class="center signup-title title-size font">Login</h2>
           <h3 v-if="userNotFound" class="center login-problem">
             User is not found.
-            <br>
-            <a><router-link class="alert" to="/sign_up"
+            <br />
+            <a
+              ><router-link class="alert" to="/sign_up"
                 >sign up.</router-link
               ></a
             >
           </h3>
-          <h1 v-if="passwordNoMatch" class="center login-problem alert">
-            Password is Invalid
-          </h1>
+          <div v-if="passwordNoMatch">
+            <h1 class="password-invalid-text center">
+              Password is Invalid
+            </h1>
+          </div>
           <form @submit="login">
             <div class="field">
-              <label class='email-input' for="email">email:</label>
+              <label class="email-input" for="email">email:</label>
               <input
                 class="input is-primary is-rounded"
                 type="email"
@@ -26,9 +29,7 @@
               />
             </div>
             <div class="field">
-              <label for="password"
-                >Password:</label
-              >
+              <label for="password">Password:</label>
               <input
                 class="input is-primary is-rounded"
                 type="password"
@@ -86,9 +87,16 @@ section {
   text-transform: uppercase;
   font-weight: bold;
 }
+
 .login-problem {
   font-size: 15px;
 }
+
+.password-invalid-text {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
 .form-area {
   display: flex;
   flex-direction: column;
@@ -112,7 +120,7 @@ section {
 }
 
 .email-input {
-  margin-right:30px;
+  margin-right: 30px;
 }
 
 .field {

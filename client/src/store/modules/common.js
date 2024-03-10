@@ -37,7 +37,7 @@ const actions = {
 				if (res.data.login_flag) {
 					// commit('session/setUserObject', res.data.user, { root: true })
 					commit('setLoginFlag', res.data.login_flag);
-					router.push({ name: 'analysis' });
+					router.push({ name: 'GameData' });
 				}
 				commit('setNoPasswordMatch', res.data.Password_no_match);
 				commit('setUserNotFound', res.data.Not_found);
