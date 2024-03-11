@@ -22,6 +22,13 @@
 				<p>
 					So, I return, once again, to this study. We'll see how the project goes as I work on it. 
 				</p>
+				<p>
+				<div>
+					<p>
+						<router-link class="alert" to="/login">Login</router-link>
+					</p>
+				</div>
+				</p>
 			</div>
     </section>
   </div>
@@ -33,25 +40,25 @@ export default {};
 
 <style scoped>
 section {
-	display: grid; 
-	grid-template-columns: 1fr 1fr;
-	margin: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 50px;
 }
 
 .image-div {
-	background-image: url("../../assets/images/mario.jpg");
+  background-image: url("../../assets/images/mario.jpg");
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-	border-radius: 12px;
+  border-radius: 12px;
 }
 
 .paragraph-div {
-	margin: 0 30px 0 30px;
+  margin: 0 30px 0 30px;
 }
 
 .paragraph-heading {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 </style>
