@@ -23,9 +23,9 @@
 					So, I return, once again, to this study. We'll see how the project goes as I work on it. 
 				</p>
 				<p>
-				<div>
+				<div class='login-link-div'>
 					<p>
-						<router-link class="alert" to="/login">Login</router-link>
+						<router-link class="link-router" to="/login">Login</router-link>
 					</p>
 				</div>
 				</p>
@@ -60,5 +60,23 @@ section {
 
 .paragraph-heading {
   text-transform: uppercase;
+}
+
+.login-link-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.link-router {
+	text-decoration: none;
+	color: black;
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+.link-router:hover {
+	color: rgb(45, 165, 229);
 }
 </style>
