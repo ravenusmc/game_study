@@ -46,6 +46,7 @@ const actions = {
 		const path = 'http://localhost:5000/buildCSVCharts';
 		axios.post(path, payload)
 			.then((res) => {
+				console.log(res.data)
 				commit('setDataReceived', true)
 				commit('setBestSingleGameByYear', res.data['best_single_game'])
 				commit('setBestSingleGameByYearScore', res.data['best_game_score'])
