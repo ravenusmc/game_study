@@ -235,3 +235,5 @@ class EXAMINECSV():
 	# 		-DONE  
 	# 	-Graph of user scores versus critic score for best game 
 	# 		-Should I do this? -->
+
+    best_game_by_genre_and_year[0] === 'No games found for the selected year and genre'

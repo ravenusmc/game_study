@@ -42,12 +42,6 @@
         </div>
       </div>
 
-      <div>
-        <h1>test</h1>
-        <!-- <div class="pic-one"></div>
-        <div class="pic-two"></div> -->
-      </div>
-
     </section>
   </div>
 </template>
