@@ -19,6 +19,8 @@ const data = {
 	topFiveGraph: true,
 	topPublishersGraph: false,
 	topPublishersBySelectedYearAndGenreGraph: false,
+	graphOptions: [],
+	tests: [1,2,3],
 };
 
 const getters = {
@@ -35,6 +37,8 @@ const getters = {
 	topFiveGraph: (state) => state.topFiveGraph, 
 	topPublishersGraph: (state) => state.topPublishersGraph,
 	topPublishersBySelectedYearAndGenreGraph: (state) => state.topPublishersBySelectedYearAndGenreGraph,
+	graphOptions: (state) => state.graphOptions,
+	tests: (state) => state.tests,
 };
 
 
@@ -51,15 +55,29 @@ const actions = {
 				commit('setBestSingleGameByYear', res.data['best_single_game'])
 				commit('setBestSingleGameByYearScore', res.data['best_game_score'])
 				commit('setBestGameByGenreAndYear', res.data['best_game_by_genre_and_year'])
+				// Below here working on bad data 
 
 				if (res.data['top_five_games_and_scores_selected_year'].length === 2){
 					commit('setTopFiveGraph', false);
+					commit('setGraphOptions', ["Top Publishers in Selected Year", "Top Publishers in Selected Year and Genre"])
 				}else {
 					commit('setTopFiveGamesAndScoresSelectedYear', res.data['top_five_games_and_scores_selected_year'])
+					commit('setGraphOptions', ["Top 5 Games for Selected Year", "Top Publishers in Selected Year", "Top Publishers in Selected Year and Genre"])
 				}
 
+				console.log(res.data['top_publishers_by_selected_year'])
+
+				// if (res.data['top_publishers_by_selected_year'].length === 2) {
+				// 	commit('setTopPublishers', false)
+				// }
 				commit('setTopPublishersBySelectedYear', res.data['top_publishers_by_selected_year'])
+
+				console.log(res.data['top_publishers_by_selected_year_and_genre'])
+				console.log(res.data['top_publishers_by_selected_year_and_genre'].length)
+
 				commit('setTopPublishersBySelectedYearAndGenre', res.data['top_publishers_by_selected_year_and_genre'])
+				
+				// Above here working on checking for bad data
 				res.data['year_and_critic_ratings'] = res.data['year_and_critic_ratings'].map(([year, rating]) => [
 					new Date(year, 0, 1),
 					rating,
@@ -147,6 +165,10 @@ const mutations = {
 
 	setTopPublishersBySelectedYearAndGenreGraph(state, value) {
 		state.topPublishersBySelectedYearAndGenreGraph = value
+	},
+
+	setGraphOptions(state, value) {
+		state.graphOptions = value
 	},
 
 };
