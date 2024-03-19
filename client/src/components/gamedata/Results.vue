@@ -1,15 +1,19 @@
 <template>
   <div>
     <div class="basic-data-area">
-      <div class='basic-data-area-div'>
+      <div class="basic-data-area-div">
         <h3 class="center">Basic Information</h3>
         <div>
-          <p>Year Selected: <span>{{ selectedYear }}</span> </p>
-          <p>Genre Selected: <span>{{ selectedGenre }}</span></p>
           <p>
-            The best game was <span>{{ bestSingleGameByYear }}</span> 
-            and it had a critic score
-            of <span>{{ bestSingleGameByYearScore }}</span>.
+            Year Selected: <span>{{ selectedYear }}</span>
+          </p>
+          <p>
+            Genre Selected: <span>{{ selectedGenre }}</span>
+          </p>
+          <p>
+            The best game was <span>{{ bestSingleGameByYear }}</span> and it had
+            a critic score of <span>{{ bestSingleGameByYearScore }}</span
+            >.
           </p>
           <p>
             The best game in <span>{{ selectedYear }}</span
@@ -22,35 +26,36 @@
       </div>
     </div>
     <hr />
-    <div class="genre-form">
-      <GenreForm />
+    <div v-if="hideAllGraphs">
+      <div class="genre-form">
+        <GenreForm />
+      </div>
+      <div class="graph-area">
+        <div v-if="topFiveGraph">
+          <GraphCard
+            :typeOne="typeOne"
+            :data="topFiveGamesAndScoresSelectedYear"
+            :options="chartOptionsOne"
+          ></GraphCard>
+        </div>
+        <div v-if="topPublishersGraph">
+          <GraphCard
+            :typeOne="typeOne"
+            :data="topPublishersBySelectedYear"
+            :options="chartOptionsTwo"
+          >
+          </GraphCard>
+        </div>
+        <div v-if="topPublishersBySelectedYearAndGenreGraph">
+          <GraphCard
+            :typeOne="typeOne"
+            :data="topPublishersBySelectedYearAndGenre"
+            :options="chartOptionsFour"
+          >
+          </GraphCard>
+        </div>
+      </div>
     </div>
-    <div class="graph-area">
-      <div v-if="topFiveGraph">
-        <GraphCard
-          :typeOne="typeOne"
-          :data="topFiveGamesAndScoresSelectedYear"
-          :options="chartOptionsOne"
-        ></GraphCard>
-      </div>
-      <div v-if="topPublishersGraph">
-        <GraphCard
-          :typeOne="typeOne"
-          :data="topPublishersBySelectedYear"
-          :options="chartOptionsTwo"
-        >
-        </GraphCard>
-      </div>
-      <div v-if="topPublishersBySelectedYearAndGenreGraph">
-        <GraphCard
-          :typeOne="typeOne"
-          :data="topPublishersBySelectedYearAndGenre"
-          :options="chartOptionsFour"
-        >
-        </GraphCard>
-      </div>
-    </div>
-
     <hr />
     <GenreGraphForm />
     <GraphCard
@@ -89,6 +94,7 @@ export default {
       "topFiveGraph",
       "topPublishersGraph",
       "topPublishersBySelectedYearAndGenreGraph",
+      "hideAllGraphs",
     ]),
   },
   data() {
@@ -206,7 +212,7 @@ h3 {
 .basic-data-area-div {
   padding: 10px;
   border-radius: 12px;
-  background-color: rgba(6,154,234,0.8);
+  background-color: rgba(6, 154, 234, 0.8);
 }
 
 .genre-form {

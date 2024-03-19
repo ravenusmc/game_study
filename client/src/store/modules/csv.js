@@ -19,6 +19,7 @@ const data = {
 	topFiveGraph: true,
 	topPublishersGraph: false,
 	topPublishersBySelectedYearAndGenreGraph: false,
+	hideAllGraphs: true, 
 	graphOptions: [],
 	tests: [1,2,3],
 };
@@ -37,6 +38,7 @@ const getters = {
 	topFiveGraph: (state) => state.topFiveGraph, 
 	topPublishersGraph: (state) => state.topPublishersGraph,
 	topPublishersBySelectedYearAndGenreGraph: (state) => state.topPublishersBySelectedYearAndGenreGraph,
+	hideAllGraphs: (state) => state.hideAllGraphs,
 	graphOptions: (state) => state.graphOptions,
 	tests: (state) => state.tests,
 };
@@ -57,10 +59,14 @@ const actions = {
 				commit('setBestGameByGenreAndYear', res.data['best_game_by_genre_and_year'])
 				// Below here working on bad data 
 
-				if (res.data['top_five_games_and_scores_selected_year'].length === 2){
-					commit('setTopFiveGraph', false);
+				if (res.data['top_five_games_and_scores_selected_year'].length === 2 && 
+				res.data['top_publishers_by_selected_year'].length === 2 &&
+				res.data['top_publishers_by_selected_year_and_genre'].length === 2){
+					console.log("here")
+					commit('setHideAllGraphs', false);
 					commit('setGraphOptions', ["Top Publishers in Selected Year", "Top Publishers in Selected Year and Genre"])
 				}else {
+					commit('setHideAllGraphs', true);
 					commit('setTopFiveGamesAndScoresSelectedYear', res.data['top_five_games_and_scores_selected_year'])
 					commit('setGraphOptions', ["Top 5 Games for Selected Year", "Top Publishers in Selected Year", "Top Publishers in Selected Year and Genre"])
 				}
@@ -169,6 +175,10 @@ const mutations = {
 
 	setGraphOptions(state, value) {
 		state.graphOptions = value
+	},
+
+	setHideAllGraphs(state, value) {
+		state.hideAllGraphs = value
 	},
 
 };
