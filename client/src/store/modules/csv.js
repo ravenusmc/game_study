@@ -6,7 +6,7 @@ import store from '@/store/index';
 Vue.use(Vuex);
 
 const data = {
-	dataReceived: false, 
+	dataReceived: false,
 	selectedYear: 0,
 	selectedGenre: "",
 	bestSingleGameByYear: "",
@@ -19,9 +19,9 @@ const data = {
 	topFiveGraph: true,
 	topPublishersGraph: false,
 	topPublishersBySelectedYearAndGenreGraph: false,
-	hideAllGraphs: true, 
+	hideAllGraphs: true,
 	graphOptions: [],
-	tests: [1,2,3],
+	tests: [1, 2, 3],
 };
 
 const getters = {
@@ -35,14 +35,13 @@ const getters = {
 	topPublishersBySelectedYear: (state) => state.topPublishersBySelectedYear,
 	topPublishersBySelectedYearAndGenre: (state) => state.topPublishersBySelectedYearAndGenre,
 	yearAndCriticRatings: (state) => state.yearAndCriticRatings,
-	topFiveGraph: (state) => state.topFiveGraph, 
+	topFiveGraph: (state) => state.topFiveGraph,
 	topPublishersGraph: (state) => state.topPublishersGraph,
 	topPublishersBySelectedYearAndGenreGraph: (state) => state.topPublishersBySelectedYearAndGenreGraph,
 	hideAllGraphs: (state) => state.hideAllGraphs,
 	graphOptions: (state) => state.graphOptions,
 	tests: (state) => state.tests,
 };
-
 
 const actions = {
 
@@ -57,33 +56,25 @@ const actions = {
 				commit('setBestSingleGameByYear', res.data['best_single_game'])
 				commit('setBestSingleGameByYearScore', res.data['best_game_score'])
 				commit('setBestGameByGenreAndYear', res.data['best_game_by_genre_and_year'])
-				// Below here working on bad data 
 
-				if (res.data['top_five_games_and_scores_selected_year'].length === 2 && 
-				res.data['top_publishers_by_selected_year'].length === 2 &&
-				res.data['top_publishers_by_selected_year_and_genre'].length === 2){
-					console.log("here")
-					commit('setHideAllGraphs', false);
+				const topFiveGamesLength = res.data['top_five_games_and_scores_selected_year'].length;
+				const topPublishersLength = res.data['top_publishers_by_selected_year'].length;
+				const topPublishersGenreLength = res.data['top_publishers_by_selected_year_and_genre'].length;
+
+				if (topFiveGamesLength === 2 && topPublishersLength === 2 && topPublishersGenreLength === 2) {
+					commit('setHideAllGraphs', false);	
+					// I made not need this else if statement...
+				} else if (topFiveGamesLength === 2 && topPublishersLength > 2 && topPublishersGenreLength > 2) {
+					console.log('Else if')
 					commit('setGraphOptions', ["Top Publishers in Selected Year", "Top Publishers in Selected Year and Genre"])
-				}else {
+				} else {
 					commit('setHideAllGraphs', true);
 					commit('setTopFiveGamesAndScoresSelectedYear', res.data['top_five_games_and_scores_selected_year'])
+					commit('setTopPublishersBySelectedYear', res.data['top_publishers_by_selected_year'])
+					commit('setTopPublishersBySelectedYearAndGenre', res.data['top_publishers_by_selected_year_and_genre'])
 					commit('setGraphOptions', ["Top 5 Games for Selected Year", "Top Publishers in Selected Year", "Top Publishers in Selected Year and Genre"])
 				}
 
-				console.log(res.data['top_publishers_by_selected_year'])
-
-				// if (res.data['top_publishers_by_selected_year'].length === 2) {
-				// 	commit('setTopPublishers', false)
-				// }
-				commit('setTopPublishersBySelectedYear', res.data['top_publishers_by_selected_year'])
-
-				console.log(res.data['top_publishers_by_selected_year_and_genre'])
-				console.log(res.data['top_publishers_by_selected_year_and_genre'].length)
-
-				commit('setTopPublishersBySelectedYearAndGenre', res.data['top_publishers_by_selected_year_and_genre'])
-				
-				// Above here working on checking for bad data
 				res.data['year_and_critic_ratings'] = res.data['year_and_critic_ratings'].map(([year, rating]) => [
 					new Date(year, 0, 1),
 					rating,
@@ -98,15 +89,15 @@ const actions = {
 	submitGenreSelectionToServer: ({ commit }, { payload }) => {
 		const path = 'http://localhost:5000/buildGenreGraph';
 		axios.post(path, payload)
-		.then((res) => {
-			res.data = res.data.map((innerArray) => {
-				return innerArray.map((value, index) => (index === 0 ? new Date(value, 0, 1) : value));
+			.then((res) => {
+				res.data = res.data.map((innerArray) => {
+					return innerArray.map((value, index) => (index === 0 ? new Date(value, 0, 1) : value));
+				});
+				commit('setYearAndCriticRatings', res.data)
+			})
+			.catch((error) => {
+				console.log(error);
 			});
-			commit('setYearAndCriticRatings', res.data)
-		})
-		.catch((error) => {
-			console.log(error);
-		});
 	},
 
 	changeDataGraphs: ({ commit }, { payload }) => {
@@ -114,7 +105,6 @@ const actions = {
 		commit('setTopFiveGraph', graphType === "Top 5 Games for Selected Year");
 		commit('setTopPublishers', graphType === "Top Publishers in Selected Year");
 		commit('setTopPublishersBySelectedYearAndGenreGraph', graphType === "Top Publishers in Selected Year and Genre")
-		// commit('setShowScatterPlotGraph', graphType !== "Box Plot" && graphType !== "Histogram");
 	},
 
 };
@@ -122,7 +112,7 @@ const actions = {
 const mutations = {
 
 	setDataReceived(state, value) {
-		state.dataReceived = value; 
+		state.dataReceived = value;
 	},
 
 	setSelectedYear(state, value) {

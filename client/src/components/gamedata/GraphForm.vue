@@ -11,7 +11,6 @@
         </select>
       </div>
     </form>
-    <p>{{ graphOptions }}</p>
   </div>
 </template>
 
