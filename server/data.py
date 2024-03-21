@@ -80,6 +80,7 @@ class EXAMINECSV():
         merged_df = merged_df.fillna(0)
         return merged_df
     
+    # I need to find the bug here why does lower years end up at the top
     def build_data_from_merged_df(self, genres, merged_df):
         year_and_critic_ratings = []
         columns = ['Year']
@@ -90,8 +91,11 @@ class EXAMINECSV():
             for i in range(2, len(row), 2):  # Assuming ratings columns start from index 2 and are in increments of 2
                 rating = int(row.iloc[i])
                 current_row.append(rating)
-
             year_and_critic_ratings.append(current_row)
+        # Sort only the data rows based on the first element (year) of each sublist
+        sorted_data = sorted(year_and_critic_ratings[1:], key=lambda x: x[0])
+        year_and_critic_ratings = [year_and_critic_ratings[0]] + sorted_data
+        print(year_and_critic_ratings)
         return year_and_critic_ratings
 
     def Top_sales_by_publisher_by_selected_year(self, year):

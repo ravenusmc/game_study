@@ -237,3 +237,5 @@ class EXAMINECSV():
 	# 		-Should I do this? -->
 
     best_game_by_genre_and_year[0] === 'No games found for the selected year and genre'
+
+    Have to fix the bug on the genre graph
