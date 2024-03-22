@@ -80,7 +80,6 @@ class EXAMINECSV():
         merged_df = merged_df.fillna(0)
         return merged_df
     
-    # I need to find the bug here why does lower years end up at the top
     def build_data_from_merged_df(self, genres, merged_df):
         year_and_critic_ratings = []
         columns = ['Year']
